@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/brickBlue01.png-ebf85111fe92a2e89b6cef1523518bc4.stex"
+path="res://.import/playerSprites.png-8833cf5690011a1c5679cc0619824a70.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Levels/TestLevel/Graphics/Blue/brickBlue01.png"
-dest_files=[ "res://.import/brickBlue01.png-ebf85111fe92a2e89b6cef1523518bc4.stex" ]
+source_file="res://Player/graphics/playerSprites.png"
+dest_files=[ "res://.import/playerSprites.png-8833cf5690011a1c5679cc0619824a70.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
