@@ -1,8 +1,5 @@
 extends Puppet
 
-func _on_discharge():
-	velocity = move_and_slide(velocity,Vector2.UP)
-
 func apply_charge():
 	if energy > 0:
 		direction = 1

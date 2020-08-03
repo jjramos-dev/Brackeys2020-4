@@ -18,7 +18,7 @@ export var fall_mult := 2
 export var jump_height_step := 20.0
 export var time_jump_apex := 0.4
 
-var jump_height : float
+var jump_height : float = 120.0
 
 var direction : float = 1.0
 var gravity : float
@@ -48,31 +48,20 @@ func _physics_process(delta):
 		velocity.y += gravity * delta
 	
 	if state==STATE.RECHARGING: 
-		recharge(delta*recharge_rate)	
-
+		recharge(delta*recharge_rate)
 	else:
 		#apply_charge(energy,delta)
 		apply_charge()
 		discharge(delta*discharge_rate)
-
-	"""# todo: Copy from player!!!!!!
-	if is_on_floor():
-		gravity_speed=Vector2(0,10)
-	else:
-		gravity_speed+=Vector2(0,10*delta)
-	"""
-	
 	
 	if energy>0:	
 		$TextureProgress.visible=true
 		update_bar(energy)
 	else:
 		$TextureProgress.visible=false
-		
 
 func update_bar(en):
 	$TextureProgress.value=en  # /(1.0*max_energy)  # x100
-
 	
 func discharge(en):
 	state=STATE.DISCHARGING
@@ -85,7 +74,7 @@ func _on_discharge():
 	state=STATE.IDLE
 
 func apply_charge():
-	if energy>0 and is_on_floor():
+	if energy > 0 and is_on_floor():
 		direction = 1
 	elif direction > 0.01:
 		direction *= stop_speed
