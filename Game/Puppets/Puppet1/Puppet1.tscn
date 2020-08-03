@@ -1,5 +1,71 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Puppets/Puppet1/Graphics/p1_spritesheet.png" type="Texture" id=2]
+[ext_resource path="res://Puppets/Puppet1/Puppet1.gd" type="Script" id=3]
 
-[node name="Puppet" instance=ExtResource( 1 )]
+[sub_resource type="Animation" id=1]
+resource_name = "idle"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 0, 0 ]
+}
+
+[sub_resource type="Animation" id=2]
+resource_name = "recharging"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ 14, 14 ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "walking"
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 1.6, 1.7 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5 ]
+}
+
+[node name="Puppet1" instance=ExtResource( 1 )]
+script = ExtResource( 3 )
+
+[node name="Sprite" parent="." index="0"]
+texture = ExtResource( 2 )
+vframes = 3
+hframes = 7
+frame = 15
+
+[node name="Collision" parent="." index="1"]
+polygon = PoolVector2Array( -34.2782, -33.8026, 35.0175, -34.4326, 32.1169, 23.1201, 29.9778, 36.123, 23.6782, 43.0526, -22.309, 42.4226, -28.6086, 32.3432, -31.9555, 22.4527 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="3"]
+autoplay = "idle"
+anims/idle = SubResource( 1 )
+anims/recharging = SubResource( 2 )
+anims/walking = SubResource( 3 )
