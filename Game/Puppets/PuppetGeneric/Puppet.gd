@@ -9,13 +9,16 @@ export var max_energy=10
 
 export var isTouchable=true
 export var recharge_rate=4
+export var discharge_rate=4
 
 export var stop_speed = 0.2
 
 export var speed=100
 export var fall_mult := 2
-export var jump_height := 120
+export var jump_height_step := 20.0
 export var time_jump_apex := 0.4
+
+var jump_height : float
 
 var direction : float = 1.0
 var gravity : float
@@ -48,8 +51,9 @@ func _physics_process(delta):
 		recharge(delta*recharge_rate)	
 
 	else:
-		apply_charge(energy,delta)
-		discharge(delta)
+		#apply_charge(energy,delta)
+		apply_charge()
+		discharge(delta*discharge_rate)
 
 	"""# todo: Copy from player!!!!!!
 	if is_on_floor():
@@ -80,8 +84,8 @@ func discharge(en):
 func _on_discharge():
 	state=STATE.IDLE
 
-func apply_charge(en,delta):
-	if en>0 and is_on_floor():
+func apply_charge():
+	if energy>0 and is_on_floor():
 		direction = 1
 	elif direction > 0.01:
 		direction *= stop_speed

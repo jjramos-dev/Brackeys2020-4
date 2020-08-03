@@ -19,10 +19,10 @@ func _physics_process(delta):
 			$AnimationPlayer.play("idle")
 			
 		STATE.DISCHARGING:
-			apply_charge(energy,delta)
+			#apply_charge()
 			$AnimationPlayer.play("walking")
 			
 		STATE.RECHARGING:
 			$AnimationPlayer.play("recharging")
-			recharge(delta*recharge_rate)	
+			#recharge(delta*recharge_rate)
 
