@@ -6,6 +6,7 @@
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=7]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -465,11 +466,6 @@ points = PoolVector2Array( 0, 0, 70, 0, 70, 70, 0, 70 )
 } ]
 18/z_index = 0
 
-[sub_resource type="PhysicsMaterial" id=21]
-friction = 0.3
-bounce = 1.0
-absorbent = true
-
 [node name="TestLevel" type="Node2D"]
 
 [node name="Scene" type="Node" parent="."]
@@ -489,20 +485,23 @@ position = Vector2( 175.988, 168.768 )
 [node name="Enemies" type="Node" parent="."]
 
 [node name="enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 867.332, 115.764 )
+position = Vector2( 843.332, 108.764 )
 speed = 30
+
+[node name="enemy" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 261.001, 405.001 )
 
 [node name="Machines" type="Node" parent="."]
 
 [node name="Puppet" parent="Machines" instance=ExtResource( 2 )]
 position = Vector2( 751.429, 393.179 )
-mass = 1.0
-physics_material_override = SubResource( 21 )
 
 [node name="Puppet2" parent="Machines" instance=ExtResource( 2 )]
-position = Vector2( 315, 103.349 )
-mass = 1.0
-physics_material_override = SubResource( 21 )
+position = Vector2( 324, 110.349 )
+
+[node name="Puppet3" parent="Machines" instance=ExtResource( 7 )]
+position = Vector2( 393.001, 182.001 )
+speed = 3000
 
 [node name="Sounds" type="Node" parent="."]
 
