@@ -1,13 +1,11 @@
-[gd_scene load_steps=29 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://Levels/TestLevel/Graphics/sheet.png" type="Texture" id=1]
-[ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Puppets/Puppet1/Puppet1.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/Hint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -485,26 +483,13 @@ position = Vector2( 175.988, 168.768 )
 
 [node name="Enemies" type="Node" parent="."]
 
-[node name="enemy2" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 843.332, 108.764 )
-speed = 30
-
-[node name="enemy" parent="Enemies" instance=ExtResource( 6 )]
-position = Vector2( 261.001, 405.001 )
-
 [node name="Machines" type="Node" parent="."]
 
-[node name="Puppet" parent="Machines" instance=ExtResource( 2 )]
-position = Vector2( 751.429, 393.179 )
+[node name="Puppet1" parent="Machines" instance=ExtResource( 2 )]
+position = Vector2( 121, 384.001 )
 
-[node name="Puppet2" parent="Machines" instance=ExtResource( 2 )]
-position = Vector2( 324, 110.349 )
-
-[node name="Puppet3" parent="Machines" instance=ExtResource( 7 )]
-position = Vector2( 393.001, 182.001 )
-
-[node name="Puppet4" parent="Machines" instance=ExtResource( 8 )]
-position = Vector2( 644.002, 429.001 )
+[node name="Puppet" parent="Machines" instance=ExtResource( 6 )]
+position = Vector2( 655.002, 111 )
 
 [node name="Sounds" type="Node" parent="."]
 

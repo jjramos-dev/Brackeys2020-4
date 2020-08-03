@@ -59,7 +59,6 @@ script = ExtResource( 3 )
 texture = ExtResource( 2 )
 vframes = 3
 hframes = 7
-frame = 15
 
 [node name="Collision" parent="." index="1"]
 polygon = PoolVector2Array( -34.2782, -33.8026, 35.0175, -34.4326, 32.1169, 23.1201, 29.9778, 36.123, 23.6782, 43.0526, -22.309, 42.4226, -28.6086, 32.3432, -31.9555, 22.4527 )

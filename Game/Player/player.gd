@@ -49,6 +49,9 @@ func _physics_process(delta: float) -> void:
 		velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
 	
+	if Input.is_action_just_pressed("restart"):
+		get_tree().reload_current_scene()
+	
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 func is_rewinding():

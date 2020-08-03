@@ -13,7 +13,7 @@ func _physics_process(delta):
 #		state=STATE.DISCHARGING
 #	else:
 #		state=STATE.IDLE
-	
+	#Esto debería estar en el genérico no?
 	match state:
 		STATE.IDLE:
 			$AnimationPlayer.play("idle")

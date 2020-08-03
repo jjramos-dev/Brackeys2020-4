@@ -1,7 +1,7 @@
 extends KinematicBody2D
 class_name Puppet
 
-
+#Todo add discharged? That is idle?
 enum STATE {IDLE, DISCHARGING, RECHARGING} # Discharging==IDLE
 var state=STATE.IDLE
 
@@ -10,14 +10,22 @@ export var max_energy=10
 export var isTouchable=true
 export var recharge_rate=4
 
-export var speed=1000
+export var stop_speed = 0.2
+
+export var speed=100
+export var fall_mult := 2
+export var jump_height := 120
+export var time_jump_apex := 0.4
+
+var direction : float = 1.0
+var gravity : float
+var jump_force : float
+var velocity : Vector2
 
 var max_energy_charged : int = 0
 var in_the_air=false
 var energy=0
 
-var direction=Vector2(1,0)
-var gravity_speed=Vector2(0,20)
 
 var recharging=false;
 
@@ -28,6 +36,14 @@ func _ready():
 
 func _physics_process(delta):
 	
+	gravity = (2 * jump_height) / pow(time_jump_apex, 2)
+	jump_force = gravity * time_jump_apex
+	
+	if velocity.y > 0:
+		velocity.y += gravity * delta * (fall_mult)
+	else:
+		velocity.y += gravity * delta
+	
 	if state==STATE.RECHARGING: 
 		recharge(delta*recharge_rate)	
 
@@ -35,13 +51,14 @@ func _physics_process(delta):
 		apply_charge(energy,delta)
 		discharge(delta)
 
-	# todo: Copy from player!!!!!!
+	"""# todo: Copy from player!!!!!!
 	if is_on_floor():
 		gravity_speed=Vector2(0,10)
 	else:
 		gravity_speed+=Vector2(0,10*delta)
+	"""
 	
-	# todo: change. Show only when player near or charging.
+	
 	if energy>0:	
 		$TextureProgress.visible=true
 		update_bar(energy)
@@ -64,11 +81,14 @@ func _on_discharge():
 	state=STATE.IDLE
 
 func apply_charge(en,delta):
-	var dir=Vector2(0,0)
-	if en>0:
-		#if is_on_floor():
-		dir=direction
-	move_and_slide(dir*speed*delta+gravity_speed,Vector2.UP)
+	if en>0 and is_on_floor():
+		direction = 1
+	elif direction > 0.01:
+		direction *= stop_speed
+	else:
+		direction = 0
+	velocity.x = speed * direction
+	velocity = move_and_slide(velocity,Vector2.UP)
 	
 func recharge(amount):
 	state=STATE.RECHARGING 
