@@ -23,6 +23,8 @@ extents = Vector2( 36, 10 )
 [node name="BlockTileSet" type="Node2D"]
 
 [node name="Cube" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 23
 
 [node name="Sprite" type="Sprite" parent="Cube"]
 texture = ExtResource( 1 )
@@ -35,6 +37,7 @@ shape = SubResource( 1 )
 
 [node name="Cube2" type="StaticBody2D" parent="."]
 position = Vector2( 72, 0 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Cube2"]
 texture = ExtResource( 1 )
@@ -47,6 +50,7 @@ shape = SubResource( 2 )
 
 [node name="Corner" type="StaticBody2D" parent="."]
 position = Vector2( 144, 0 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Corner"]
 texture = ExtResource( 1 )
@@ -59,6 +63,7 @@ polygon = PoolVector2Array( -29.73, -35.1759, 36.0309, -34.8223, 35.3238, 34.474
 
 [node name="Wedge" type="StaticBody2D" parent="."]
 position = Vector2( 216, 0 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Wedge"]
 texture = ExtResource( 1 )
@@ -71,6 +76,7 @@ polygon = PoolVector2Array( -34.9084, -34.4688, -34.5549, 34.4741, 34.388, 34.82
 
 [node name="Beam" type="StaticBody2D" parent="."]
 position = Vector2( 288, 0 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Beam"]
 texture = ExtResource( 1 )
@@ -83,6 +89,7 @@ shape = SubResource( 3 )
 
 [node name="Beam2" type="StaticBody2D" parent="."]
 position = Vector2( 0, 72 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Beam2"]
 texture = ExtResource( 1 )
@@ -95,6 +102,7 @@ shape = SubResource( 4 )
 
 [node name="Beam3" type="StaticBody2D" parent="."]
 position = Vector2( 72, 72 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Beam3"]
 texture = ExtResource( 1 )
@@ -107,6 +115,7 @@ shape = SubResource( 5 )
 
 [node name="Beam4" type="StaticBody2D" parent="."]
 position = Vector2( 144, 72 )
+collision_layer = 8
 
 [node name="Sprite" type="Sprite" parent="Beam4"]
 texture = ExtResource( 1 )
