@@ -21,8 +21,6 @@ func _ready():
 	$TextureProgress.max_value=max_energy
 
 func _physics_process(delta):
-	
-	
 	if recharging:
 		recharge(delta*recharge_rate)	
 
@@ -54,14 +52,14 @@ func discharge(en):
 		_on_discharge()   # Should it be a signal?
 		
 func _on_discharge():
-	pass
+	move_and_slide(gravity_speed,Vector2.UP)
 
 func apply_charge(en,delta):
 	var dir=Vector2(0,0)
 	if en>0:
 		#if is_on_floor():
 		dir=direction
-	move_and_slide(dir*speed*delta+gravity_speed,Vector2(0,1))
+	move_and_slide(dir*speed*delta,Vector2(0,1))
 	
 func recharge(amount):
 	energy=energy+amount
