@@ -54,6 +54,7 @@ tracks/0/keys = {
 
 [node name="Puppet1" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
+jump_height_step = 120.0
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 2 )
