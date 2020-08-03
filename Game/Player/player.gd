@@ -44,7 +44,8 @@ func _physics_process(delta: float) -> void:
 		else:
 			rewind_toy.set_recharging(false)
 			
-	if Input.is_action_just_pressed("jump"):
+	if Input.is_action_just_pressed("jump") and \
+		is_on_floor():
 		velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
 	
