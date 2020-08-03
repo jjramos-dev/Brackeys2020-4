@@ -1,18 +1,17 @@
-extends KinematicBody2D
+extends RigidBody2D
 
 
 export var max_energy=10
 
 export var isTouchable=true
-export var recharge_rate=4
+export var rechargeRate=1
 
-export var speed=1000
+export var speed=1
 
 var in_the_air=false
 var energy=0
 
 var direction=Vector2(1,0)
-var gravity_speed=Vector2(0,20)
 
 var recharging=false;
 
@@ -24,17 +23,11 @@ func _physics_process(delta):
 	
 	
 	if recharging:
-		recharge(delta*recharge_rate)	
+		recharge(delta)	
 
 	else:
-		apply_charge(energy,delta)
+		apply_charge(energy)
 		discharge(delta)
-		
-	if is_on_floor():
-		gravity_speed=Vector2(0,10)
-	else:
-		gravity_speed+=Vector2(0,10*delta)
-	
 		
 	if energy>0:	
 		$TextureProgress.visible=true
@@ -51,20 +44,18 @@ func discharge(en):
 	energy-=en
 	if energy<0:
 		energy=0
-		_on_discharge()   # Should it be a signal?
-		
-func _on_discharge():
-	pass
 
-func apply_charge(en,delta):
-	var dir=Vector2(0,0)
+func apply_charge(en):
 	if en>0:
-		#if is_on_floor():
-		dir=direction
-	move_and_slide(dir*speed*delta+gravity_speed,Vector2(0,1))
+		if not in_the_air:
+			# The force is applied near the bottom of the box
+			apply_impulse(Vector2(0,20),direction*speed)
 	
+
+
 func recharge(amount):
 	energy=energy+amount
+	
 	
 # If is touchable, we can put energy in the Puppet:
 func _on_Puppet_input_event(viewport, event, shape_idx):
@@ -75,3 +66,13 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 			elif not event.pressed:
 				recharging=false
 
+
+func _on_Puppet_body_shape_exited(body_id, body, body_shape, local_shape):
+	in_the_air=true
+	
+
+	
+
+
+func _on_Puppet_body_shape_entered(body_id, body, body_shape, local_shape):
+	in_the_air=false
