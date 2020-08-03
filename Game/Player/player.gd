@@ -1,6 +1,8 @@
 extends KinematicBody2D
 class_name Player
 
+var rewinding=false
+
 var velocity := Vector2.ZERO
 var speed := 250
 
@@ -34,6 +36,11 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		$AnimationPlayer.play("idle")
+
+	if Input.is_action_pressed("rewind"):
+		rewinding=true
+	else:
+		rewinding=false
 
 	if Input.is_action_just_pressed("jump"):
 		velocity.y = -jump_force

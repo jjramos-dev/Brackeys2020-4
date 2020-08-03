@@ -89,3 +89,20 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 			elif not event.pressed:
 				recharging=false
 
+
+
+func _on_Rewinder_body_entered(body):
+	if state==STATE.IDLE or state==STATE.RECHARGING:
+		if body.is_in_group("rewinder"):
+			# Does the variable "charging" exist?
+			if "rewinding" in body:
+				if body.rewinding:
+					state=STATE.RECHARGING
+				else:
+					state=STATE.DISCHARGING
+			
+
+func _on_Rewinder_body_exited(body):
+	if body.is_in_group("rewinder"):
+		if "rewinding" in body:
+			state=STATE.DISCHARGING
