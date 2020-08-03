@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://Levels/TestLevel/Graphics/sheet.png" type="Texture" id=1]
 [ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=8]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -501,7 +502,9 @@ position = Vector2( 324, 110.349 )
 
 [node name="Puppet3" parent="Machines" instance=ExtResource( 7 )]
 position = Vector2( 393.001, 182.001 )
-speed = 3000
+
+[node name="Puppet4" parent="Machines" instance=ExtResource( 8 )]
+position = Vector2( 644.002, 429.001 )
 
 [node name="Sounds" type="Node" parent="."]
 

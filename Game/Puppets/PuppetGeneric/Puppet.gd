@@ -8,6 +8,7 @@ export var recharge_rate=4
 
 export var speed=1000
 
+var max_energy_charged : int = 0
 var in_the_air=false
 var energy=0
 
@@ -46,14 +47,13 @@ func update_bar(en):
 
 	
 func discharge(en):
-	energy-=en
-	if energy<0:
-		energy=0
+	energy -= en
+	if energy < 0:
+		energy = 0
 		_on_discharge()   # Should it be a signal?
 		
 func _on_discharge():
 	pass
-	#move_and_slide(gravity_speed,Vector2.UP)
 
 func apply_charge(en,delta):
 	var dir=Vector2(0,0)
@@ -64,6 +64,9 @@ func apply_charge(en,delta):
 	
 func recharge(amount):
 	energy=energy+amount
+	if energy > max_energy_charged:
+		max_energy_charged = energy
+	
 	
 # If is touchable, we can put energy in the Puppet:
 func _on_Puppet_input_event(viewport, event, shape_idx):
