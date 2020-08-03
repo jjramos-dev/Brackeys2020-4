@@ -488,7 +488,7 @@ position = Vector2( 170, 176.349 )
 position = Vector2( 315, 103.349 )
 
 [node name="Puppet1" parent="Machines" instance=ExtResource( 6 )]
-position = Vector2( 130, 373 )
+position = Vector2( 140, 340 )
 
 [node name="Sounds" type="Node" parent="."]
 

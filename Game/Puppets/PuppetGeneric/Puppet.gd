@@ -29,6 +29,7 @@ var max_energy_charged : int = 0
 var in_the_air=false
 var energy=0
 
+var next_to_charger=false
 
 var recharging=false;
 
@@ -41,11 +42,12 @@ func _physics_process(delta):
 	
 	gravity = (2 * jump_height) / pow(time_jump_apex, 2)
 	jump_force = gravity * time_jump_apex
-	
+		
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)
 	else:
 		velocity.y += gravity * delta
+	
 	
 	if state==STATE.RECHARGING: 
 		recharge(delta*recharge_rate)
@@ -54,7 +56,7 @@ func _physics_process(delta):
 		apply_charge()
 		discharge(delta*discharge_rate)
 	
-	if energy>0:	
+	if energy>0 or next_to_charger:	
 		$TextureProgress.visible=true
 		update_bar(energy)
 	else:
@@ -84,12 +86,13 @@ func apply_charge():
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 func recharge(amount):
-	state=STATE.RECHARGING 
-	energy=energy+amount
-#	if energy > max_energy_charged:
-#		max_energy_charged = energy
-	if energy>max_energy:
-		energy=max_energy
+	if next_to_charger:
+		state=STATE.RECHARGING 
+		energy=energy+amount
+#		if energy > max_energy_charged:
+#			max_energy_charged = energy
+		if energy>max_energy:
+			energy=max_energy
 	
 	
 # If is touchable, we can put energy in the Puppet:
@@ -111,6 +114,8 @@ func _on_Rewinder_body_entered(body):
 		if body.is_in_group("rewinder"):
 			if body.has_method("set_rewind_toy"):
 				body.set_rewind_toy(self)
+			
+			next_to_charger=true
 				
 #			# Does the variable "charging" exist?
 #			if body.has_method("is_rewinding"):
@@ -124,12 +129,13 @@ func _on_Rewinder_body_exited(body):
 	if body.is_in_group("rewinder"):
 		if body.has_method("set_rewind_toy"):
 			body.set_rewind_toy(null)
+
+			next_to_charger=false
 			
-#		if body.has_method("is_rewinding"):
-#			if energy>0:
-#				state=STATE.DISCHARGING
-#			else:
-#				state=STATE.IDLE
+			if energy>0:
+				state=STATE.DISCHARGING
+			else:
+				state=STATE.IDLE
 
 func set_recharging(recharge_):
 	if recharge_:
