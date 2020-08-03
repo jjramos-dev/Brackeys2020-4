@@ -18,10 +18,16 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/player.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Puppet",
+"language": "GDScript",
+"path": "res://Puppets/PuppetGeneric/Puppet.gd"
 } ]
 _global_script_class_icons={
 "Enemy": "",
-"Player": ""
+"Player": "",
+"Puppet": ""
 }
 
 [application]

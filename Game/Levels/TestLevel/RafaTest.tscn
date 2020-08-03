@@ -501,6 +501,7 @@ position = Vector2( 324, 110.349 )
 
 [node name="Puppet3" parent="Machines" instance=ExtResource( 7 )]
 position = Vector2( 393.001, 182.001 )
+speed = 3000
 
 [node name="Sounds" type="Node" parent="."]
 
