@@ -7,12 +7,12 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if recharging:
-		state=STATE.RECHARGING
-	elif energy>0:
-		state=STATE.DISCHARGING
-	else:
-		state=STATE.IDLE
+#	if recharging:
+#		state=STATE.RECHARGING
+#	elif energy>0:
+#		state=STATE.DISCHARGING
+#	else:
+#		state=STATE.IDLE
 	
 	match state:
 		STATE.IDLE:

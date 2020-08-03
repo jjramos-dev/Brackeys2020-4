@@ -28,7 +28,7 @@ func _ready():
 
 func _physics_process(delta):
 	
-	if recharging: 
+	if state==STATE.RECHARGING: 
 		recharge(delta*recharge_rate)	
 
 	else:
@@ -85,8 +85,10 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 	if isTouchable:
 		if event is InputEventMouseButton:
 			if event.pressed:
+				state=STATE.RECHARGING
 				recharging=true   # we need this boolean because it is not a sate compatible with the others... it's an external state. 
 			elif not event.pressed:
+				state=STATE.DISCHARGING
 				recharging=false
 
 
@@ -94,15 +96,34 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 func _on_Rewinder_body_entered(body):
 	if state==STATE.IDLE or state==STATE.RECHARGING:
 		if body.is_in_group("rewinder"):
-			# Does the variable "charging" exist?
-			if "rewinding" in body:
-				if body.rewinding:
-					state=STATE.RECHARGING
-				else:
-					state=STATE.DISCHARGING
+			if body.has_method("set_rewind_toy"):
+				body.set_rewind_toy(self)
+				
+#			# Does the variable "charging" exist?
+#			if body.has_method("is_rewinding"):
+#				if body.is_rewinding():
+#					state=STATE.RECHARGING
+#				else:
+#					state=STATE.DISCHARGING
 			
 
 func _on_Rewinder_body_exited(body):
 	if body.is_in_group("rewinder"):
-		if "rewinding" in body:
+		if body.has_method("set_rewind_toy"):
+			body.set_rewind_toy(null)
+			
+#		if body.has_method("is_rewinding"):
+#			if energy>0:
+#				state=STATE.DISCHARGING
+#			else:
+#				state=STATE.IDLE
+
+func set_recharging(recharge_):
+	if recharge_:
+		if state!=STATE.DISCHARGING:
+			state=STATE.RECHARGING
+	else:
+		if energy>0:
 			state=STATE.DISCHARGING
+		else:
+			state=STATE.IDLE
