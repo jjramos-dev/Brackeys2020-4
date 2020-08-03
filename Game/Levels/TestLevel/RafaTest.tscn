@@ -1,10 +1,11 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://Levels/TestLevel/Graphics/sheet.png" type="Texture" id=1]
 [ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://gui/Hint.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=4]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=6]
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )
@@ -471,25 +472,31 @@ absorbent = true
 
 [node name="TestLevel" type="Node2D"]
 
-[node name="player" parent="." instance=ExtResource( 5 )]
-position = Vector2( 175.988, 168.768 )
-
 [node name="Scene" type="Node" parent="."]
 
 [node name="TileMap" type="TileMap" parent="Scene"]
 tile_set = SubResource( 20 )
 cell_size = Vector2( 72, 72 )
 format = 1
-tile_data = PoolIntArray( 0, 1610612744, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 10, 18, 0, 11, 18, 0, 12, 18, 0, 13, 1610612744, 0, 14, -1073741806, 0, 65536, -1073741806, 0, 65550, -1073741806, 0, 131072, -1073741806, 0, 131076, -1073741821, 0, 131080, 14, 0, 131081, 1610612744, 0, 131082, 1610612744, 0, 131083, 1610612744, 0, 131084, 1610612737, 0, 131086, -1073741806, 0, 196608, -1073741806, 0, 196610, 1, 0, 196611, 15, 0, 196612, 2, 0, 196613, 3, 0, 196622, -1073741806, 0, 262144, -1073741806, 0, 262158, -1073741806, 0, 327680, -1073741806, 0, 327687, 14, 0, 327693, 14, 0, 327694, -1073741806, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 13, 0, 393223, 11, 0, 393226, 13, 0, 393227, 11, 0, 393229, 0, 0, 393230, -1073741806, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, -1073741806, 0 )
+tile_data = PoolIntArray( 0, 1610612744, 0, 1, 18, 0, 2, 18, 0, 3, 18, 0, 4, 18, 0, 5, 18, 0, 6, 18, 0, 7, 18, 0, 8, 18, 0, 9, 18, 0, 10, 18, 0, 11, 18, 0, 12, 18, 0, 13, 1610612744, 0, 14, -1073741806, 0, 65536, -1073741806, 0, 65550, -1073741806, 0, 131072, -1073741806, 0, 131076, -1073741821, 0, 131080, 14, 0, 131081, 1610612744, 0, 131082, 1610612744, 0, 131083, 1610612744, 0, 131084, 1610612737, 0, 131086, -1073741806, 0, 196608, -1073741806, 0, 196610, 1, 0, 196611, 15, 0, 196612, 2, 0, 196613, 3, 0, 196622, -1073741806, 0, 262144, -1073741806, 0, 262151, 14, 0, 262158, -1073741806, 0, 327680, -1073741806, 0, 327687, 0, 0, 327693, 14, 0, 327694, -1073741806, 0, 393216, 0, 0, 393217, 0, 0, 393218, 0, 0, 393219, 0, 0, 393220, 0, 0, 393221, 0, 0, 393222, 13, 0, 393223, 11, 0, 393226, 13, 0, 393227, 11, 0, 393229, 0, 0, 393230, -1073741806, 0, 458752, 0, 0, 458753, 0, 0, 458754, 0, 0, 458755, 0, 0, 458756, 0, 0, 458757, 0, 0, 458758, 0, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458763, 0, 0, 458764, 0, 0, 458765, 0, 0, 458766, -1073741806, 0 )
 
 [node name="Player" type="Node" parent="."]
 
+[node name="player" parent="Player" instance=ExtResource( 5 )]
+position = Vector2( 175.988, 168.768 )
+
 [node name="Enemies" type="Node" parent="."]
+
+[node name="enemy" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 320.388, 398.004 )
+
+[node name="enemy2" parent="Enemies" instance=ExtResource( 6 )]
+position = Vector2( 792.397, 92.9578 )
 
 [node name="Machines" type="Node" parent="."]
 
 [node name="Puppet" parent="Machines" instance=ExtResource( 2 )]
-position = Vector2( 200, 382.349 )
+position = Vector2( 751.429, 393.179 )
 mass = 1.0
 physics_material_override = SubResource( 21 )
 
@@ -510,7 +517,7 @@ __meta__ = {
 position = Vector2( 464, 84.3491 )
 
 [node name="Hint2" parent="GUI" instance=ExtResource( 3 )]
-position = Vector2( 352, 366.349 )
+position = Vector2( 888.989, 360.934 )
 
 [node name="Timer" type="Timer" parent="GUI"]
 wait_time = 5.0

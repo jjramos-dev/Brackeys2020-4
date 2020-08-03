@@ -1,4 +1,5 @@
 extends KinematicBody2D
+class_name Player
 
 var velocity := Vector2.ZERO
 var speed := 250
@@ -25,11 +26,11 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right"):
 		velocity.x = speed
 		$AnimationPlayer.play("run")
-		$Sprite.scale.x = 3
+		$Sprite.flip_h = false
 	elif Input.is_action_pressed("left"):
 		velocity.x = -speed
 		$AnimationPlayer.play("run")
-		$Sprite.scale.x = -3
+		$Sprite.flip_h = true
 	else:
 		velocity.x = 0
 		$AnimationPlayer.play("idle")
