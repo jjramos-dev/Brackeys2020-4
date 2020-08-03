@@ -50,7 +50,6 @@ func apply_charge(en):
 		if not in_the_air:
 			# The force is applied near the bottom of the box
 			apply_impulse(Vector2(0,20),direction*speed)
-	
 
 
 func recharge(amount):
