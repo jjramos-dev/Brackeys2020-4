@@ -1,7 +1,5 @@
 extends Puppet
 
-enum STATE {IDLE, WALKING, RECHARGING}
-var state=STATE.IDLE
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,15 +10,15 @@ func _physics_process(delta):
 	if recharging:
 		state=STATE.RECHARGING
 	elif energy>0:
-		state=STATE.WALKING
+		state=STATE.DISCHARGING
 	else:
 		state=STATE.IDLE
 	
 	match state:
 		STATE.IDLE:
 			$AnimationPlayer.play("idle")
-		STATE.WALKING:
-
+			
+		STATE.DISCHARGING:
 			apply_charge(energy,delta)
 			$AnimationPlayer.play("walking")
 			

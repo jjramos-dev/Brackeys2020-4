@@ -17,5 +17,6 @@ func _ready():
 
 
 func _on_Timer_timeout():
-	$Hint.visible=false
-	$Hint2.visible=false
+	#$Hint.visible=false
+	#$Hint2.visible=false
+	pass
