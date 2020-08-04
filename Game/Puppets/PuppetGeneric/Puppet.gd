@@ -128,6 +128,7 @@ func _on_Rewinder_body_entered(body):
 func _on_Rewinder_body_exited(body):
 	if body.is_in_group("rewinder"):
 		if body.has_method("set_rewind_toy"):
+			print("Entra el jugador")
 			body.set_rewind_toy(null)
 
 			next_to_charger=false
