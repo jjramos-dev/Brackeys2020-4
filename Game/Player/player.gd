@@ -59,3 +59,7 @@ func is_rewinding():
 	
 func set_rewind_toy(toy_):
 	rewind_toy=toy_
+
+
+func _on_VisibilityNotifier2D_screen_exited() -> void:
+	get_tree().reload_current_scene()
