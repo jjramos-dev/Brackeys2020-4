@@ -13,12 +13,12 @@ export var discharge_rate=4
 
 export var stop_speed = 0.2
 
-export var speed=100
+export var speed=50
 export var fall_mult := 2
-export var jump_height_step := 20.0
+export var jump_height_step := 10.0
 export var time_jump_apex := 0.4
 
-var jump_height : float = 120.0
+var jump_height : float = 60.0
 
 var direction : float = 1.0
 var gravity : float

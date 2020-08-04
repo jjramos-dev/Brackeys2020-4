@@ -5,10 +5,10 @@ var rewinding=false
 var rewind_toy=null
 
 var velocity := Vector2.ZERO
-var speed := 250
+var speed := 125
 
 export var fall_mult := 2
-export var jump_height := 120.0
+export var jump_height := 60.0
 var time_jump_apex := 0.4
 
 var gravity : float
