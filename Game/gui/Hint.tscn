@@ -59,7 +59,7 @@ margin_top = -49.5
 margin_right = 115.5
 margin_bottom = 49.5
 custom_fonts/font = SubResource( 1 )
-text = "Keep pressing on Cubby to charge it
+text = "Press E near Puppet to charge it
 <------------"
 align = 1
 valign = 1

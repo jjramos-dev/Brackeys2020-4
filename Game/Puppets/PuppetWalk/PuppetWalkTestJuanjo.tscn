@@ -1,0 +1,69 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Puppets/PuppetWalk/PuppetWalkTestJuanjo.gd" type="Script" id=1]
+[ext_resource path="res://gui/Hint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=3]
+[ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment/Ice.tscn" type="PackedScene" id=9]
+
+[sub_resource type="TileSet" id=1]
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Scene"]
+tile_set = SubResource( 1 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+
+[node name="Player" type="Node" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource( 5 )]
+position = Vector2( 184.861, 98.9646 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Machines" type="Node" parent="."]
+
+[node name="PuppetWalk" parent="Machines" instance=ExtResource( 6 )]
+position = Vector2( 265.228, 109.489 )
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" parent="GUI" instance=ExtResource( 2 )]
+position = Vector2( 464, 84.3491 )
+
+[node name="Timer" type="Timer" parent="GUI"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 946.994, 361.349 )
+
+[node name="Killing" type="Node" parent="."]
+
+[node name="Ice" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 454.994, 455.349 )
+
+[node name="Ice2" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 524.994, 455.349 )
+
+[node name="Ice3" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 594.994, 456.349 )
+
+[node name="Ice4" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 664.994, 455.349 )
+[connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
+[connection signal="entered_door" from="Door" to="." method="_on_Door_entered_door"]

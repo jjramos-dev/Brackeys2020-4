@@ -1,6 +1,5 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=29 format=2]
 
-[ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=1]
 [ext_resource path="res://gui/Hint.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=3]
 [ext_resource path="res://Levels/TestLevel/Graphics/sheet.png" type="Texture" id=4]
@@ -488,11 +487,8 @@ position = Vector2( 170, 176.349 )
 
 [node name="Machines" type="Node" parent="."]
 
-[node name="Puppet2" parent="Machines" instance=ExtResource( 1 )]
-position = Vector2( 315, 103.349 )
-
 [node name="Puppet1" parent="Machines" instance=ExtResource( 6 )]
-position = Vector2( 140, 340 )
+position = Vector2( 320, 374 )
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -503,7 +499,7 @@ __meta__ = {
 }
 
 [node name="Hint" parent="GUI" instance=ExtResource( 2 )]
-position = Vector2( 464, 84.3491 )
+position = Vector2( 481, 365.349 )
 
 [node name="Timer" type="Timer" parent="GUI"]
 wait_time = 5.0
