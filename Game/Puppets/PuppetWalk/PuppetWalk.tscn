@@ -8,7 +8,7 @@
 [ext_resource path="res://Puppets/PuppetWalk/Animations/PuppetWalk-idle.anim" type="Animation" id=6]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 16, 15.5 )
+extents = Vector2( 16, 16 )
 
 [node name="PuppetWalk" instance=ExtResource( 1 )]
 script = ExtResource( 3 )
@@ -18,10 +18,8 @@ jump_height_step = 120.0
 texture = ExtResource( 2 )
 vframes = 4
 hframes = 4
-frame = 3
 
 [node name="Collision" parent="." index="1"]
-position = Vector2( 0, 0.5 )
 shape = SubResource( 1 )
 
 [node name="TextureProgress" parent="." index="2"]

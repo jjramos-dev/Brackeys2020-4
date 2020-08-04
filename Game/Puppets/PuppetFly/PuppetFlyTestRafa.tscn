@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Puppets/PuppetFly/PuppetFlyTestRafa.gd" type="Script" id=1]
+[ext_resource path="res://gui/Hint.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=3]
+[ext_resource path="res://Levels/TestLevel/TileSet.tres" type="TileSet" id=4]
+[ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment/Ice.tscn" type="PackedScene" id=9]
+
+[node name="TestLevel" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Scene"]
+tile_set = ExtResource( 4 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 6, 0, 0, 7, 0, 0, 8, 0, 0, 9, 0, 0, 10, 0, 0, 11, 0, 0, 12, 0, 0, 13, 0, 0, 14, 0, 0, 15, 0, 0, 16, 0, 0, 17, 0, 0, 18, 0, 0, 19, 0, 0, 20, 0, 0, 65536, 0, 0, 65555, 0, 0, 131072, 0, 0, 131091, 0, 0, 196608, 0, 0, 196627, 0, 0, 262144, 0, 0, 262148, 0, 0, 262149, 0, 0, 262150, 0, 0, 262151, 0, 0, 262152, 0, 0, 262153, 0, 0, 262163, 0, 0, 327680, 0, 0, 327699, 0, 0, 393216, 0, 0, 393228, 0, 0, 393229, 0, 0, 393230, 0, 0, 393231, 0, 0, 393232, 0, 0, 393235, 0, 0, 458752, 0, 0, 458771, 0, 0, 458772, 0, 0, 524288, 0, 0, 524307, 0, 0, 524308, 0, 0, 589824, 0, 0, 589843, 0, 0, 589844, 0, 0, 655360, 0, 0, 655361, 0, 0, 655362, 0, 0, 655363, 0, 0, 655364, 0, 0, 655365, 0, 0, 655366, 0, 0, 655367, 0, 0, 655368, 0, 0, 655369, 0, 0, 655370, 0, 0, 655371, 0, 0, 655372, 0, 0, 655373, 0, 0, 655374, 0, 0, 655375, 0, 0, 655376, 0, 0, 655377, 0, 0, 655378, 0, 0, 655379, 0, 0, 655380, 0, 0, 720915, 0, 0, 720916, 0, 0 )
+
+[node name="Player" type="Node" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource( 5 )]
+position = Vector2( 184.861, 98.9646 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Machines" type="Node" parent="."]
+
+[node name="Puppet" parent="Machines" instance=ExtResource( 6 )]
+position = Vector2( 287.001, 110 )
+discharge_rate = 1
+speed = 25
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+script = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Hint" parent="GUI" instance=ExtResource( 2 )]
+position = Vector2( 464, 84.3491 )
+
+[node name="Timer" type="Timer" parent="GUI"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Door" parent="." instance=ExtResource( 8 )]
+position = Vector2( 946.994, 361.349 )
+
+[node name="Killing" type="Node" parent="."]
+
+[node name="Ice" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 454.994, 455.349 )
+
+[node name="Ice2" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 524.994, 455.349 )
+
+[node name="Ice3" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 594.994, 456.349 )
+
+[node name="Ice4" parent="Killing" instance=ExtResource( 9 )]
+position = Vector2( 664.994, 455.349 )
+[connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
+[connection signal="entered_door" from="Door" to="." method="_on_Door_entered_door"]
