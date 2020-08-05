@@ -14,6 +14,8 @@ var time_jump_apex := 0.4
 var gravity : float
 var jump_force : float
 
+var direction : = 1
+
 func _ready() -> void:
 	pass # Replace with function body.
 
@@ -29,11 +31,17 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right"):
 		velocity.x = speed
 		$AnimationPlayer.play("run")
-		$Sprite.flip_h = false
+		if direction == -1:
+			direction = 1
+			SIGNALS.emit_signal("change_direction",direction)
+			scale.x = -1
 	elif Input.is_action_pressed("left"):
 		velocity.x = -speed
 		$AnimationPlayer.play("run")
-		$Sprite.flip_h = true
+		if direction == 1:
+			direction = -1
+			SIGNALS.emit_signal("change_direction",direction)
+			scale.x = -1
 	else:
 		velocity.x = 0
 		$AnimationPlayer.play("idle")
