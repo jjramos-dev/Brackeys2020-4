@@ -13,16 +13,26 @@ var on_last_hop = false
 func _ready() -> void:
 	$Timer.start(timeout_time)
 	SIGNALS.connect("bullet_on_gun",self,"on_bullet_on_gun")
+	physics_material_override.bounce = 1
 
 func _physics_process(delta: float) -> void:
 	var vel : Vector2
+	var draw = true
 	if on_last_hop:
 		vel = get_parent().global_position - position
 		linear_velocity = vel.normalized()*speed_rewind
 
+"""func draw_rope()->void:
+	if not on_rewind:
+		draw_line(Vector2(0,0), Vector2(50, 50), Color(255, 0, 0), 1)
+	else:
+		pass"""
+
 func rewind():
 	on_rewind = true
+	SIGNALS.emit_signal("on_rewind")
 	mode = MODE_CHARACTER
+	physics_material_override.bounce = 0
 	var vel : Vector2
 	move_to_prev_hook()
 
@@ -37,9 +47,6 @@ func set_hook(body: Node):
 	hooks_array.append(hook)
 
 func move_to_prev_hook()->void:
-	print("move_to_prev")
-	print(collision_pos)
-	print(position)
 	var vel : Vector2
 	vel = collision_pos.pop_back() - position
 	linear_velocity = vel.normalized()*speed_rewind
@@ -59,12 +66,13 @@ func _on_bullet_body_entered(body: Node) -> void:
 		hooks_array.pop_back().queue_free()
 		move_to_prev_hook()
 	elif collision_pos.size() == 0:
-		hooks_array.pop_back().queue_free()
+		if hooks_array.size() > 0:
+			hooks_array.pop_back().queue_free()
 		on_last_hop = true
 	else:
-		print("Vaya follón")
 		queue_free()
 		
 func on_bullet_on_gun() -> void:
 	if on_last_hop:
+		SIGNALS.emit_signal("bullet_queued")
 		queue_free()
