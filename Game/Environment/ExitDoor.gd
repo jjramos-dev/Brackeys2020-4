@@ -1,6 +1,9 @@
 extends Area2D
 
-signal entered_door()
+signal entered_door(from_level,door_name)
+
+export var from_level="secene.tscn"
+export var door_name="exit"
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -18,4 +21,5 @@ func _ready():
 
 
 func _on_Door_body_entered(body):
-	emit_signal("entered_door")
+	if body.is_in_group("player"):
+		emit_signal("entered_door",from_level,door_name)

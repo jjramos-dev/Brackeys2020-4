@@ -7,7 +7,8 @@
 [ext_resource path="res://Puppets/Puppet1/Puppet1.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Puppets/Puppet1/Puppet1TestJuanjo.gd" type="Script" id=7]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Environment/Ice.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Environment/Killings/Ice.tscn" type="PackedScene" id=9]
+
 
 [sub_resource type="ConvexPolygonShape2D" id=1]
 points = PoolVector2Array( 70, 70, 0, 70, 0, 0, 70, 0 )

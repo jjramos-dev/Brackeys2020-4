@@ -112,6 +112,7 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 func _on_Rewinder_body_entered(body):
 	if state==STATE.IDLE or state==STATE.RECHARGING:
 		if body.is_in_group("rewinder"):
+			print("Entered rewinder "+self.name)
 			if body.has_method("set_rewind_toy"):
 				body.set_rewind_toy(self)
 			
@@ -128,7 +129,6 @@ func _on_Rewinder_body_entered(body):
 func _on_Rewinder_body_exited(body):
 	if body.is_in_group("rewinder"):
 		if body.has_method("set_rewind_toy"):
-			print("Entra el jugador")
 			body.set_rewind_toy(null)
 
 			next_to_charger=false

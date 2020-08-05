@@ -6,8 +6,8 @@
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=4]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Environment/Ice.tscn" type="PackedScene" id=9]
 
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
@@ -20,20 +20,22 @@ tile_set = ExtResource( 4 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 format = 1
-tile_data = PoolIntArray( 65535, -1610612730, 0, 0, 1610612739, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 0, 0, 131071, -1610612730, 0, 65536, -1610612729, 0, 65555, -1610612735, 0, 196607, -1610612730, 0, 131091, -1610612735, 0, 262143, -1610612730, 0, 196627, -1610612735, 0, 327679, -1610612730, 0, 262144, -1610612734, 0, 262163, -1610612735, 0, 393215, -1610612730, 0, 327680, -1610612735, 0, 327699, -1610612729, 0, 458751, -1610612730, 0, 393216, -1610612735, 0, 524287, -1610612730, 0, 458752, -1610612735, 0, 589823, -1610612730, 0, 524288, -1610612735, 0, 524307, -1610612734, 0, 655359, -1610612730, 0, 589824, -1610612735, 0, 589843, -1610612735, 0, 720895, -1610612730, 0, 655360, -1610612733, 0, 655361, 1, 0, 655362, 1, 0, 655363, 1, 0, 655364, 1, 0, 655365, 1, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 1, 0, 655373, 1, 0, 655374, 1, 0, 655375, 1, 0, 655376, 1, 0, 655377, 1, 0, 655378, 1, 0, 655379, 3, 0 )
+tile_data = PoolIntArray( 65535, -1610612730, 0, 0, 1610612739, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, 0, 0, 131070, 1610612739, 0, 131071, -1610612725, 0, 65536, -1610612729, 0, 65555, -1610612735, 0, 196606, -1610612735, 0, 131091, -1610612735, 0, 262142, -1610612735, 0, 196621, 1610612739, 0, 196622, -1073741820, 0, 196623, -1073741821, 0, 196627, -1610612735, 0, 327678, -1610612733, 0, 327679, -1073741813, 0, 262144, -1610612734, 0, 262156, 1610612739, 0, 262157, 5, 0, 262158, 5, 0, 262159, 4, 0, 262163, -1610612735, 0, 393215, -1610612730, 0, 327680, -1610612735, 0, 327682, 1610612736, 0, 327683, 1610612737, 0, 327684, 1610612737, 0, 327685, 1610612736, 0, 327691, 2, 0, 327692, -1610612732, 0, 327693, -1610612732, 0, 327694, -1610612732, 0, 327695, 3, 0, 327699, -1610612729, 0, 327700, -1610612736, 0, 327701, -1610612736, 0, 458751, -1610612730, 0, 393216, -1610612735, 0, 393217, 6, 0, 393218, 6, 0, 393219, -1610612735, 0, 393220, 6, 0, 393221, 6, 0, 393237, -1610612736, 0, 524287, -1610612730, 0, 458752, -1610612735, 0, 458755, -1610612735, 0, 458759, 0, 0, 458760, 0, 0, 458761, 0, 0, 458762, 0, 0, 458773, -1610612736, 0, 589823, -1610612730, 0, 524288, -1610612735, 0, 524291, -1610612735, 0, 524295, -1610612735, 0, 524298, -1610612735, 0, 524307, -1610612734, 0, 524308, -1610612736, 0, 524309, -1610612736, 0, 655359, -1610612730, 0, 589824, -1610612735, 0, 589827, -1610612735, 0, 589831, -1610612735, 0, 589834, -1610612735, 0, 589843, -1610612735, 0, 720895, -1610612730, 0, 655360, -1610612735, 0, 655363, -1610612735, 0, 655367, -1610612735, 0, 655370, -1610612735, 0, 655373, -1610612736, 0, 655374, -1610612736, 0, 655375, -1610612736, 0, 655376, -1610612736, 0, 655377, -1610612736, 0, 655379, -1610612735, 0, 720896, -1073741822, 0, 720899, -1073741822, 0, 720903, -1073741822, 0, 720906, -1073741822, 0, 720915, -1073741822, 0 )
 
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 5 )]
-position = Vector2( 15.399, 107.884 )
+position = Vector2( 14, 99 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Machines" type="Node" parent="."]
 
 [node name="PuppetWalk" parent="Machines" instance=ExtResource( 6 )]
-position = Vector2( 140.361, 299.762 )
-discharge_rate = 1
+position = Vector2( 335.045, 204.898 )
+
+[node name="PuppetWalk2" parent="Machines" instance=ExtResource( 6 )]
+position = Vector2( 462.928, 301.017 )
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -44,6 +46,7 @@ __meta__ = {
 }
 
 [node name="Hint" parent="GUI" instance=ExtResource( 2 )]
+visible = false
 position = Vector2( 464, 84.3491 )
 
 [node name="Timer" type="Timer" parent="GUI"]
@@ -51,21 +54,26 @@ wait_time = 5.0
 one_shot = true
 autostart = true
 
-[node name="Door" parent="." instance=ExtResource( 8 )]
-position = Vector2( 946.994, 361.349 )
-
 [node name="Killing" type="Node" parent="."]
 
-[node name="Ice" parent="Killing" instance=ExtResource( 9 )]
-position = Vector2( 454.994, 455.349 )
+[node name="Spike" parent="Killing" instance=ExtResource( 7 )]
+position = Vector2( 48, 176 )
+rotation = 3.14159
+collision_layer = 1
 
-[node name="Ice2" parent="Killing" instance=ExtResource( 9 )]
-position = Vector2( 524.994, 455.349 )
+[node name="Spike2" parent="Killing" instance=ExtResource( 7 )]
+position = Vector2( 559.93, 304.273 )
+rotation = 3.14159
+collision_layer = 1
 
-[node name="Ice3" parent="Killing" instance=ExtResource( 9 )]
-position = Vector2( 594.994, 456.349 )
+[node name="Doors" type="Node" parent="."]
 
-[node name="Ice4" parent="Killing" instance=ExtResource( 9 )]
-position = Vector2( 664.994, 455.349 )
+[node name="StartDoor" parent="Doors" instance=ExtResource( 8 )]
+position = Vector2( -18, 109 )
+door_name = "start"
+
+[node name="ExitDoor2" parent="Doors" instance=ExtResource( 8 )]
+position = Vector2( 657, 237 )
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
-[connection signal="entered_door" from="Door" to="." method="_on_Door_entered_door"]
+[connection signal="entered_door" from="Doors/StartDoor" to="." method="_on_Door_entered_door"]
+[connection signal="entered_door" from="Doors/ExitDoor2" to="." method="_on_Door_entered_door"]
