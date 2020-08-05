@@ -32,6 +32,7 @@ position = Vector2( 184.861, 98.9646 )
 
 [node name="PuppetWalk" parent="Machines" instance=ExtResource( 6 )]
 position = Vector2( 265.228, 109.489 )
+discharge_rate = 1
 
 [node name="Sounds" type="Node" parent="."]
 
