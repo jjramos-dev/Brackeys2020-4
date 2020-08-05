@@ -1,11 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Puppets/PuppetFly/graphics/FlyBox.png" type="Texture" id=1]
 [ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Puppets/PuppetFly/PuppetFly.gd" type="Script" id=3]
 
-[sub_resource type="Animation" id=1]
-resource_name = "discharging"
+[sub_resource type="RectangleShape2D" id=1]
+resource_local_to_scene = true
+extents = Vector2( 6, 12 )
+
+[sub_resource type="Animation" id=2]
 length = 0.8
 loop = true
 tracks/0/type = "value"
@@ -45,7 +48,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, -2 ), Vector2( 0, -4 ), Vector2( 0, -5 ), Vector2( 0, -4 ) ]
 }
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=3]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -84,7 +87,7 @@ tracks/2/keys = {
 "values": [ Vector2( 0, 4.5 ) ]
 }
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=4]
 length = 0.4
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -129,13 +132,16 @@ script = ExtResource( 3 )
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
 hframes = 5
-frame = 2
+frame = 1
 
 [node name="Collision" parent="." index="1"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, -4.5 )
+
+[node name="CollisionShape2D" parent="Rewinder" index="0"]
+shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="4"]
 autoplay = "idle"
-anims/discharging = SubResource( 1 )
-anims/idle = SubResource( 2 )
-anims/recharging = SubResource( 3 )
+anims/discharging = SubResource( 2 )
+anims/idle = SubResource( 3 )
+anims/recharging = SubResource( 4 )

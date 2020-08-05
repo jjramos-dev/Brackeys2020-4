@@ -45,11 +45,13 @@ _global_script_class_icons={
 [application]
 
 config/name="Game"
+run/main_scene="res://Menus/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 SIGNALS="*res://signals.gd"
+OverallLogic="*res://Logic/OverallLogic.gd"
 
 [display]
 

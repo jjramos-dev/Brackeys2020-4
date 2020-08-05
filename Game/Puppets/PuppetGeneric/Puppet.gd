@@ -82,8 +82,11 @@ func apply_charge():
 		direction *= stop_speed
 	else:
 		direction = 0
-	velocity.x = speed * direction
+	velocity.x = speed * direction * scale.x    # Just to follow the way its facing
 	velocity = move_and_slide(velocity,Vector2.UP)
+	
+	if scale.x<0:
+		print(str(scale.x))
 	
 func recharge(amount):
 	if next_to_charger:

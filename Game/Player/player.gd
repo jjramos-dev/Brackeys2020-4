@@ -7,6 +7,8 @@ var rewind_toy=null
 var velocity := Vector2.ZERO
 var speed := 125
 
+export var check_visibility=true
+
 export var fall_mult := 2
 export var jump_height := 60.0
 var time_jump_apex := 0.4
@@ -17,6 +19,7 @@ var jump_force : float
 var direction : = 1
 
 func _ready() -> void:
+	print("Ready player one")
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
@@ -70,4 +73,5 @@ func set_rewind_toy(toy_):
 
 
 func _on_VisibilityNotifier2D_screen_exited() -> void:
-	get_tree().reload_current_scene()
+	if check_visibility:
+		 get_tree().reload_current_scene()
