@@ -24,13 +24,12 @@ func _physics_process(delta: float) -> void:
 	if (rotation > 0 and rotation < PI/2) or \
 	   (rotation > -PI/2 and rotation < 0) or \
 	   (rotation > 3*PI/2 and rotation < 2*PI) or\
-	   (rotation < -3*PI/2 and rotation > 2*PI):
+	   (rotation < -3*PI/2 and rotation > -2*PI):
 		$Sprite.flip_v = false
 		$Sprite.offset.y = 0
 	else:
 		$Sprite.flip_v = true
 		$Sprite.offset.y = 6
-	print(rotation)
 	
 	if Input.is_action_just_pressed("shoot"):
 		if $bullet_pos.get_child_count() == 0:
