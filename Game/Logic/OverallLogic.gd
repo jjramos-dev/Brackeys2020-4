@@ -2,7 +2,15 @@ extends Node
 
 var starting_door="HiddenDoor"
 
-export var transitions= {"door-2.1": ["res://Menus/StartMenu.tscn","entrance"],
+var has_key = false
+var has_gun = false
+
+export var transitions= {
+		"door-1.1": ["res://Menus/StartMenu.tscn","entrance"],
+		#"door-1.2": ["res://Levels/Stage3/Stage3.tscn","door-3.1"],
+		"door-1.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
+		"door-1.3": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
+		"door-2.1": ["res://Menus/StartMenu.tscn","entrance"],
 		"door-2.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
 		"door-4.1": ["res://Levels/Stage2/Stage2.tscn","door-2.2"]}
 
@@ -22,3 +30,9 @@ func change_scene(scene,door):
 	OverallLogic.starting_door=door
 	get_tree().change_scene(scene)
 		
+
+func give_key() -> void:
+	has_key = true
+	
+func give_gun() -> void:
+	has_gun = true

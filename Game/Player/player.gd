@@ -20,12 +20,10 @@ var direction : = 1
 
 func _ready() -> void:
 	print("Ready player one")
-	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
 	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
 	#jump_force = gravity * time_jump_apex
-	
 	
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)
@@ -76,3 +74,10 @@ func set_rewind_toy(toy_):
 func _on_VisibilityNotifier2D_screen_exited() -> void:
 	if check_visibility:
 		 get_tree().reload_current_scene()
+
+
+
+
+
+
+

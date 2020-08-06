@@ -73,3 +73,4 @@ autoplay = "idle"
 anims/charging = SubResource( 2 )
 anims/discharging = SubResource( 3 )
 anims/idle = SubResource( 4 )
+[connection signal="body_entered" from="." to="." method="_on_Key_body_entered"]

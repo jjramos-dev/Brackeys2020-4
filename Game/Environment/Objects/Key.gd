@@ -23,3 +23,9 @@ func discharge():
 	
 func stop():
 	$AnimationPlayer.play("idle")
+
+
+func _on_Key_body_entered(body: Node) -> void:
+	if body is Player:
+		OverallLogic.give_key()
+		queue_free()
