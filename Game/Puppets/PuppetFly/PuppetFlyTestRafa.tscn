@@ -9,7 +9,6 @@
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Environment/Killings/Ice.tscn" type="PackedScene" id=9]
 
-
 [node name="TestLevel" type="Node2D"]
 script = ExtResource( 1 )
 

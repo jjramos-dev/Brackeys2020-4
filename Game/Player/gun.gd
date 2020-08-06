@@ -8,12 +8,17 @@ export var bullet_speed : = 300
 var bullet_node : Bullet
 var direction = 1
 var to_draw : = false
-
+onready var rope_node : Line2D = $rope
 
 func _ready() -> void:
 	SIGNALS.connect("change_direction",self,"on_changed_direction")
-	SIGNALS.connect("on_rewind",self,"on_rewind")
-
+	SIGNALS.connect("bullet_queued",self,"on_bullet_queued")
+	SIGNALS.connect("bullet_col",self,"on_bullet_col")
+	SIGNALS.connect("hook_deleted",self,"on_hook_deleted")
+	rope_node.set_as_toplevel(true)
+	rope_node.global_position = Vector2.ZERO
+	rope_node.global_rotation = 0
+	
 func _physics_process(delta: float) -> void:
 	mouse_pos = get_local_mouse_position()
 	rotation += mouse_pos.angle() * smooth
@@ -42,6 +47,17 @@ func _physics_process(delta: float) -> void:
 			else:
 				bullet_node.linear_velocity = Vector2(-1,0).rotated(-rotation)*bullet_speed
 	
+	if to_draw:
+		var n_points = rope_node.get_point_count()
+		if n_points == 0:
+			rope_node.add_point($bullet_pos.global_position)
+			rope_node.add_point(bullet_node.global_position)
+		else:
+			rope_node.set_point_position(0, $bullet_pos.global_position)
+			rope_node.set_point_position(n_points-1, bullet_node.global_position)
+	else:
+		if rope_node.get_point_count() > 0:
+			rope_node.clear_points()
 #	update()
 	
 	
@@ -57,5 +73,17 @@ func _on_bullet_area_body_entered(body: Node) -> void:
 	if body is Bullet:
 		SIGNALS.emit_signal("bullet_on_gun")
 
-func on_rewind() -> void:
+func on_bullet_queued() -> void:
 	to_draw = false
+
+func on_bullet_col(pos : Vector2) -> void:
+	rope_node.add_point(pos)
+
+func on_hook_deleted() -> void:
+	rope_node.remove_point(rope_node.get_point_count()-2)
+	
+	
+	
+	
+	
+	

@@ -59,15 +59,18 @@ func follow_player()->void:
 func _on_bullet_body_entered(body: Node) -> void:
 	if not on_rewind:
 		collision_pos.append(position)
+		SIGNALS.emit_signal("bullet_col",position)
 		set_hook(body)
 	elif body is Enemy:
 		queue_free()
 	elif collision_pos.size() > 0:
 		hooks_array.pop_back().queue_free()
+		SIGNALS.emit_signal("hook_deleted")
 		move_to_prev_hook()
 	elif collision_pos.size() == 0:
 		if hooks_array.size() > 0:
 			hooks_array.pop_back().queue_free()
+			SIGNALS.emit_signal("hook_deleted")
 		on_last_hop = true
 	else:
 		queue_free()

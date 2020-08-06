@@ -2,4 +2,6 @@ extends Node
 
 signal change_direction(dir)
 signal bullet_on_gun
-signal on_rewind
+signal bullet_queued
+signal bullet_col(pos)
+signal hook_deleted
