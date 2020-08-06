@@ -22,6 +22,8 @@ func _ready() -> void:
 	print("Ready player one")
 	SIGNALS.connect("gun_picked",self,"on_gun_picked")
 	#SIGNALS.connect("key_picked",self,"on_key_picked")
+	on_gun_picked()
+	OverallLogic.has_gun = true
 
 func _physics_process(delta: float) -> void:
 	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
@@ -80,6 +82,7 @@ func _on_VisibilityNotifier2D_screen_exited() -> void:
 
 func on_gun_picked() -> void:
 	$gun_pos/gun.visible = true
+	
 
 
 """

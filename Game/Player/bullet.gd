@@ -9,6 +9,9 @@ var hooks_array : Array
 var on_rewind = false
 var on_last_hop = false
 
+var local_collision_pos : Vector2
+var local_normal : Vector2
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start(timeout_time)
@@ -42,7 +45,17 @@ func _on_Timer_timeout() -> void:
 func set_hook(body: Node):
 	var hook = preload("res://Player/hook.tscn").instance()
 	add_child(hook)
-	hook.position = position
+	#hook.position = position
+	hook.position = local_collision_pos
+	print(local_normal.angle())
+	hook.rotation += local_normal.angle()
+	"""if local_normal == Vector2(-1,0):
+		hook.rotation += local_normal.angle()
+	elif local_normal == Vector2(0,1):
+		hook.rotation += 90
+	elif local_normal == Vector2(0,-1):
+		hook.rotation += 270
+	print(local_normal)"""
 	hook.set_as_toplevel(true)
 	hooks_array.append(hook)
 
@@ -85,3 +98,18 @@ func on_bullet_on_gun() -> void:
 	if on_last_hop:
 		SIGNALS.emit_signal("bullet_queued")
 		queue_free()
+
+func _integrate_forces( state ):
+	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
+		local_collision_pos = state.get_contact_collider_position(0)
+		local_normal = state.get_contact_local_normal(0)
+
+
+
+
+
+
+
+
+
+
