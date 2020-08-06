@@ -15,7 +15,7 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func charge():
+func recharge():
 	$AnimationPlayer.play("charging")
 	
 func discharge():
