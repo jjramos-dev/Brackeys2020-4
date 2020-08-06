@@ -7,7 +7,7 @@ func _ready():
 
 func _physics_process(delta):
 
-	#._physics_process(delta)	
+	._physics_process(delta)	
 	
 #	if recharging:
 #		state=STATE.RECHARGING

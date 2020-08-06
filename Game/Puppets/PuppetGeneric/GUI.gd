@@ -20,3 +20,20 @@ func _on_Timer_timeout():
 	#$Hint.visible=false
 	#$Hint2.visible=false
 	pass
+
+
+func _on_ButtonStart_focus_entered():
+	$AnimationPlayer.play("StartButton")
+
+
+func _on_ButtonStart_focus_exited():
+	$AnimationPlayer.play("Stop")
+
+
+
+func _on_ButtonStart_mouse_entered():
+	$AnimationPlayer.play("StartButton")
+	
+
+func _on_ButtonStart_mouse_exited():
+	$AnimationPlayer.play("Stop")
