@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/Stage5/Stage5.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -7,6 +7,7 @@
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
+[ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=8]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -18,6 +19,10 @@ radius = 20.0
 script = ExtResource( 1 )
 
 [node name="Scene" type="Node" parent="."]
+
+[node name="background" type="Sprite" parent="Scene"]
+texture = ExtResource( 8 )
+centered = false
 
 [node name="TileMap" type="TileMap" parent="Scene"]
 scale = Vector2( 1, 0.987776 )
