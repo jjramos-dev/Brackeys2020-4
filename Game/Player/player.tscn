@@ -65,5 +65,5 @@ scale = Vector2( 1.6, 1.6 )
 position = Vector2( 8, 8 )
 
 [node name="gun" parent="gun_pos" instance=ExtResource( 3 )]
-position = Vector2( 0, 0 )
+visible = false
 [connection signal="screen_exited" from="VisibilityNotifier2D" to="." method="_on_VisibilityNotifier2D_screen_exited"]

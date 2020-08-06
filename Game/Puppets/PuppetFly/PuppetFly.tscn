@@ -57,10 +57,10 @@ tracks/0/loop_wrap = true
 tracks/0/imported = false
 tracks/0/enabled = true
 tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
+"times": PoolRealArray( 0, 0.001 ),
+"transitions": PoolRealArray( 1, 1 ),
 "update": 1,
-"values": [ 4 ]
+"values": [ 4, 4 ]
 }
 tracks/1/type = "value"
 tracks/1/path = NodePath("Collision:shape:extents")
@@ -132,6 +132,7 @@ script = ExtResource( 3 )
 
 [node name="Sprite" parent="." index="0"]
 texture = ExtResource( 1 )
+vframes = 1
 hframes = 5
 frame = 4
 

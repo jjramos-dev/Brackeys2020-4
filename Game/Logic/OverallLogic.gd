@@ -7,8 +7,7 @@ var has_gun = false
 
 export var transitions= {
 		"door-1.1": ["res://Menus/StartMenu.tscn","entrance"],
-		#"door-1.2": ["res://Levels/Stage3/Stage3.tscn","door-3.1"],
-		"door-1.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
+		"door-1.2": ["res://Levels/Stage3/Stage3.tscn","door-3.1"],
 		"door-1.3": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
 		"door-2.1": ["res://Menus/StartMenu.tscn","entrance"],
 		"door-2.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
@@ -38,3 +37,4 @@ func give_key() -> void:
 	
 func give_gun() -> void:
 	has_gun = true
+	SIGNALS.emit_signal("gun_picked")

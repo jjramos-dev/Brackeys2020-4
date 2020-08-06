@@ -74,7 +74,7 @@ rotation = 3.14159
 
 [node name="Doors" type="Node" parent="."]
 
-[node name="ExitDoor" parent="Doors" instance=ExtResource( 5 )]
+[node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( -16, 112 )
 door_name = "door-3.1"
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]

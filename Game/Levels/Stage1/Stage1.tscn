@@ -41,6 +41,7 @@ position = Vector2( 12, 104 )
 
 [node name="PuppetWalk" parent="Machines" instance=ExtResource( 4 )]
 position = Vector2( 400, 300 )
+z_index = 0
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -69,10 +70,12 @@ rotation = 3.14159
 
 [node name="ExitDoor" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( 656, 112 )
+scale = Vector2( -1, 1 )
 door_name = "door-1.2"
 
 [node name="ExitDoor2" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( 656, 300 )
+scale = Vector2( -1, 1 )
 door_name = "door-1.3"
 
 [node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]

@@ -36,7 +36,8 @@ func _physics_process(delta: float) -> void:
 		$Sprite.flip_v = true
 		$Sprite.offset.y = 6
 	
-	if Input.is_action_just_pressed("shoot"):
+	if OverallLogic.has_gun and \
+		Input.is_action_just_pressed("shoot"):
 		if $bullet_pos.get_child_count() == 0:
 			to_draw = true
 			bullet_node = preload("res://Player/bullet.tscn").instance()
