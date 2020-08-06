@@ -47,7 +47,8 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = 0
 		$AnimationPlayer.play("idle")
-
+	
+	#if rewind_toy!=null and OverallLogic.has_key:
 	if rewind_toy!=null:
 		if Input.is_action_pressed("rewind"):
 			rewind_toy.set_recharging(true)
