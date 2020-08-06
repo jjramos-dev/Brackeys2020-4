@@ -76,16 +76,17 @@ position = Vector2( 320, 400 )
 shape = SubResource( 1 )
 
 [node name="Key" type="Area2D" parent="Scene"]
-position = Vector2( 592, 137.69 )
+position = Vector2( 592, 136 )
 
 [node name="Sprite" type="Sprite" parent="Scene/Key"]
 texture = ExtResource( 4 )
 flip_v = true
 vframes = 3
 hframes = 2
-frame = 3
+frame = 4
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="Scene/Key"]
+autoplay = "waiting"
 anims/waiting = SubResource( 2 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Key"]
