@@ -70,7 +70,7 @@ func _physics_process(delta: float) -> void:
 func is_rewinding():
 	return rewinding
 	
-func set_rewind_toy(toy_):
+func set_rewind_toy(toy_) -> void:
 	rewind_toy=toy_
 
 

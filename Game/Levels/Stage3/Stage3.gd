@@ -69,3 +69,9 @@ func _on_hit_by_killing(_name):
 func _on_Exterior_body_entered(body):
 	if body.is_in_group("player"):
 		kill()
+
+
+func _on_Key_body_entered(body: Node) -> void:
+	if body is Player:
+		OverallLogic.give_key()
+		$Scene/Key.queue_free()

@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Player/gun.gd"
 }, {
+"base": "Area2D",
+"class": "Key",
+"language": "GDScript",
+"path": "res://Environment/Objects/Key.gd"
+}, {
 "base": "KinematicBody2D",
 "class": "Player",
 "language": "GDScript",
@@ -38,6 +43,7 @@ _global_script_class_icons={
 "Bullet": "",
 "Enemy": "",
 "Gun": "",
+"Key": "",
 "Player": "",
 "Puppet": ""
 }

@@ -33,7 +33,7 @@ var next_to_charger=false
 
 var recharging=false;
 
-onready var rewinder_key=$Key
+onready var rewinder_key : Key = $Key
 
 # Just negate it if the player doesn't have the key.
 export var key_usable=true
@@ -174,7 +174,7 @@ func show_key():
 		rewinder_key.visible=true
 	
 func hide_key():
-	if rewinder_key!=null:
+	if rewinder_key != null:
 		rewinder_key.stop()
 		rewinder_key.visible=false
 	

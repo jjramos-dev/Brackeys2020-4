@@ -1,9 +1,9 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/Stage3/Stage3.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=3]
-[ext_resource path="res://Environment/Objects/Key.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Objects/Graphics/key.png" type="Texture" id=4]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
@@ -11,6 +11,50 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "waiting"
+length = 2.0
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4, 1.6, 1.8 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 2, 1 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 592, 140 ), Vector2( 592, 135 ) ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("Sprite:flip_v")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1.2 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ true ]
+}
+
+[sub_resource type="CircleShape2D" id=3]
+radius = 12.0
 
 [node name="Stage3" type="Node2D"]
 script = ExtResource( 1 )
@@ -31,10 +75,24 @@ tile_data = PoolIntArray( 65535, -1610612730, 0, 0, -1073741824, 0, 1, -10737418
 position = Vector2( 320, 400 )
 shape = SubResource( 1 )
 
-[node name="Key" parent="Scene" instance=ExtResource( 4 )]
-position = Vector2( 592, 148 )
+[node name="Key" type="Area2D" parent="Scene"]
+position = Vector2( 592, 137.69 )
+
+[node name="Sprite" type="Sprite" parent="Scene/Key"]
+texture = ExtResource( 4 )
+flip_v = true
+vframes = 3
+hframes = 2
+frame = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="Scene/Key"]
+anims/waiting = SubResource( 2 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Key"]
+shape = SubResource( 3 )
 
 [node name="Light2D" type="Light2D" parent="Scene/Key"]
+position = Vector2( 0, 8 )
 texture = ExtResource( 8 )
 
 [node name="Player" type="Node" parent="."]
@@ -78,4 +136,5 @@ rotation = 3.14159
 position = Vector2( -16, 112 )
 door_name = "door-3.1"
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
+[connection signal="body_entered" from="Scene/Key" to="." method="_on_Key_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
