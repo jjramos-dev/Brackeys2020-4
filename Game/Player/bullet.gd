@@ -72,6 +72,12 @@ func _on_bullet_body_entered(body: Node) -> void:
 			hooks_array.pop_back().queue_free()
 			SIGNALS.emit_signal("hook_deleted")
 		on_last_hop = true
+		#Si la pelota está colisionando con el espacio exterior
+		for body in get_colliding_bodies():
+			print(body.name)
+			if body.is_in_group("area_gun"):
+				print("ON AREA")
+				on_bullet_on_gun()
 	else:
 		queue_free()
 		

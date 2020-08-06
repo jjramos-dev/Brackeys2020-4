@@ -40,7 +40,7 @@ position = Vector2( 464.98, 299.162 )
 
 [node name="PuppetWalk3" parent="Machines" instance=ExtResource( 4 )]
 position = Vector2( 457.849, 74.7509 )
-scale = Vector2( -1, 1 )
+direction = -1.0
 
 [node name="Sounds" type="Node" parent="."]
 
