@@ -1,5 +1,5 @@
 extends Area2D
-
+class_name Key
 
 # Declare member variables here. Examples:
 # var a = 2
@@ -25,7 +25,3 @@ func stop():
 	$AnimationPlayer.play("idle")
 
 
-func _on_Key_body_entered(body: Node) -> void:
-	if body is Player:
-		OverallLogic.give_key()
-		queue_free()

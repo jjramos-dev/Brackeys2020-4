@@ -7,6 +7,7 @@ var has_gun = false
 
 export var transitions= {
 		"door-1.1": ["res://Menus/StartMenu.tscn","entrance"],
+		"entrance": ["res://Levels/Stage2/Stage2.tscn","door-2.1"],
 		"door-1.2": ["res://Levels/Stage3/Stage3.tscn","door-3.1"],
 		"door-1.3": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
 		"door-2.1": ["res://Menus/StartMenu.tscn","entrance"],

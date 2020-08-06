@@ -1,4 +1,5 @@
 extends Node2D
+class_name Level
 
 signal entered_door(scene,door)
 

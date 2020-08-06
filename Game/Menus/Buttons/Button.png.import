@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/JumpingBox.png-c684035f6d3e3ab30e18b47cbf2ddb6b.stex"
+path="res://.import/Button.png-63de5ce9903d9c2f8fffd9b28df83fff.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Puppets/PuppetJump/Graphics/JumpingBox.png"
-dest_files=[ "res://.import/JumpingBox.png-c684035f6d3e3ab30e18b47cbf2ddb6b.stex" ]
+source_file="res://Menus/Buttons/Button.png"
+dest_files=[ "res://.import/Button.png-63de5ce9903d9c2f8fffd9b28df83fff.stex" ]
 
 [params]
 
@@ -20,7 +20,7 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=false
+flags/filter=true
 flags/mipmaps=false
 flags/anisotropic=false
 flags/srgb=2
