@@ -17,10 +17,10 @@ export var speed=50
 export var fall_mult := 2
 export var jump_height_step := 10.0
 export var time_jump_apex := 0.4
+export var direction : float = 1.0
 
 var jump_height : float = 60.0
 
-var direction : float = 1.0
 var gravity : float = 750
 var jump_force : float = 300
 var velocity : Vector2
@@ -37,6 +37,8 @@ var recharging=false;
 func _ready():
 	$TextureProgress.max_value=max_energy
 	state=STATE.IDLE
+	if direction == -1.0:
+		scale.x = -1
 
 func _physics_process(delta):
 	
@@ -75,13 +77,18 @@ func _on_discharge():
 	state=STATE.IDLE
 
 func apply_charge():
-	if energy > 0 and is_on_floor():
+	"""if energy > 0 and is_on_floor():
 		direction = 1
 	elif direction > 0.01:
 		direction *= stop_speed
 	else:
-		direction = 0
-	velocity.x = speed * direction * scale.x    # Just to follow the way its facing
+		direction = 0"""
+	var mult := 10.0
+	if energy < 1:
+		mult = 5.0
+	if energy < 0.5:
+		mult = 0
+	velocity.x = speed * direction * mult / max_energy   # Just to follow the way its facing
 	velocity = move_and_slide(velocity,Vector2.UP)
 	
 	if scale.x<0:
