@@ -24,14 +24,14 @@ tile_data = PoolIntArray( 0, 0, 0, 1, 0, 0, 2, 0, 0, 3, 0, 0, 4, 0, 0, 5, 0, 0, 
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 5 )]
-position = Vector2( 179.861, 92.9646 )
+position = Vector2( 150.054, 90.8617 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Machines" type="Node" parent="."]
 
 [node name="Puppet" parent="Machines" instance=ExtResource( 6 )]
-position = Vector2( 287.001, 110 )
+position = Vector2( 299.025, 101.328 )
 discharge_rate = 1
 speed = 25
 

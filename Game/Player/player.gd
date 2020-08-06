@@ -11,8 +11,8 @@ export var fall_mult := 2
 export var jump_height := 60.0
 var time_jump_apex := 0.4
 
-var gravity : float
-var jump_force : float
+var gravity : float = 750
+var jump_force : float = 300
 
 var direction : = 1
 
@@ -20,8 +20,9 @@ func _ready() -> void:
 	pass # Replace with function body.
 
 func _physics_process(delta: float) -> void:
-	gravity = (2 * jump_height) / pow(time_jump_apex, 2)
-	jump_force = gravity * time_jump_apex
+	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
+	#jump_force = gravity * time_jump_apex
+	
 	
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)

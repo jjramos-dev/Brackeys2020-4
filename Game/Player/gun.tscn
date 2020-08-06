@@ -7,6 +7,7 @@
 radius = 27.2991
 
 [node name="gun" type="Node2D"]
+position = Vector2( -3, 2 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]

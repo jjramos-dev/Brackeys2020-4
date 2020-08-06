@@ -21,8 +21,8 @@ export var time_jump_apex := 0.4
 var jump_height : float = 60.0
 
 var direction : float = 1.0
-var gravity : float
-var jump_force : float
+var gravity : float = 750
+var jump_force : float = 300
 var velocity : Vector2
 
 var max_energy_charged : int = 0
@@ -40,14 +40,13 @@ func _ready():
 
 func _physics_process(delta):
 	
-	gravity = (2 * jump_height) / pow(time_jump_apex, 2)
-	jump_force = gravity * time_jump_apex
+	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
+	#jump_force = gravity * time_jump_apex
 		
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)
 	else:
 		velocity.y += gravity * delta
-	
 	
 	if state==STATE.RECHARGING: 
 		recharge(delta*recharge_rate)
