@@ -33,6 +33,11 @@ var next_to_charger=false
 
 var recharging=false;
 
+onready var rewinder_key=$Key
+
+# Just negate it if the player doesn't have the key.
+export var key_usable=true
+
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	$TextureProgress.max_value=max_energy
@@ -52,16 +57,21 @@ func _physics_process(delta):
 	
 	if state==STATE.RECHARGING: 
 		recharge(delta*recharge_rate)
+		recharge_key()
 	else:
 		#apply_charge(energy,delta)
 		apply_charge()
 		discharge(delta*discharge_rate)
-	
+		discharge_key()
+		
 	if energy>0 or next_to_charger:	
 		$TextureProgress.visible=true
 		update_bar(energy)
 	else:
 		$TextureProgress.visible=false
+		hide_key()
+
+
 
 func update_bar(en):
 	$TextureProgress.value=en  # /(1.0*max_energy)  # x100
@@ -75,6 +85,7 @@ func discharge(en):
 		
 func _on_discharge():
 	state=STATE.IDLE
+	hide_key()
 
 func apply_charge():
 	"""if energy > 0 and is_on_floor():
@@ -121,11 +132,12 @@ func _on_Puppet_input_event(viewport, event, shape_idx):
 func _on_Rewinder_body_entered(body):
 	if state==STATE.IDLE or state==STATE.RECHARGING:
 		if body.is_in_group("rewinder"):
-			print("Entered rewinder "+self.name)
+			#print("Entered rewinder "+self.name)
 			if body.has_method("set_rewind_toy"):
 				body.set_rewind_toy(self)
 			
 			next_to_charger=true
+			
 				
 #			# Does the variable "charging" exist?
 #			if body.has_method("is_rewinding"):
@@ -156,3 +168,18 @@ func set_recharging(recharge_):
 			state=STATE.DISCHARGING
 		else:
 			state=STATE.IDLE
+
+func show_key():
+	rewinder_key.visible=true
+	
+func hide_key():
+	rewinder_key.stop()
+	rewinder_key.visible=false
+	
+func recharge_key():
+	show_key()
+	rewinder_key.recharge()
+
+func discharge_key():
+	show_key()
+	rewinder_key.discharge()
