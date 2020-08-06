@@ -170,16 +170,20 @@ func set_recharging(recharge_):
 			state=STATE.IDLE
 
 func show_key():
-	rewinder_key.visible=true
+	if rewinder_key!=null:
+		rewinder_key.visible=true
 	
 func hide_key():
-	rewinder_key.stop()
-	rewinder_key.visible=false
+	if rewinder_key!=null:
+		rewinder_key.stop()
+		rewinder_key.visible=false
 	
 func recharge_key():
-	show_key()
-	rewinder_key.recharge()
+	if rewinder_key!=null:
+		show_key()
+		rewinder_key.recharge()
 
 func discharge_key():
-	show_key()
-	rewinder_key.discharge()
+	if rewinder_key!=null:
+		show_key()
+		rewinder_key.discharge()
