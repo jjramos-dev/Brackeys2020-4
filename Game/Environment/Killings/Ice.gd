@@ -1,6 +1,10 @@
 extends Area2D
 
 
+export var title="Killing"
+
+signal hit_by_killing(_name)
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -17,4 +21,6 @@ func _ready():
 
 
 func _on_Ice_body_entered(body):
-	print("In Ice!!!!")
+	if body.is_in_group("creature"):
+		print("In "+title+"!!!!")
+		emit_signal("hit_by_killing",title)
