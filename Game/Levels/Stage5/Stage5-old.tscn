@@ -1,19 +1,18 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/Stage5/Stage5.gd" type="Script" id=1]
-[ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://gui/fonts/Griffy/Griffy-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Player/graphics/gun.png" type="Texture" id=3]
-[ext_resource path="res://Environment/Graohics/light-lamp.png" type="Texture" id=4]
-[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Levels/Stage5/GUI.gd" type="Script" id=6]
-[ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
-[ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=8]
-[ext_resource path="res://gui/fonts/Griffy/Griffy-Regular.ttf" type="DynamicFontData" id=9]
-[ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=11]
-[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=12]
-[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=9]
+[ext_resource path="res://Environment/Graohics/light-lamp.png" type="Texture" id=10]
+[ext_resource path="res://Player/player.tscn" type="PackedScene" id=11]
+[ext_resource path="res://Levels/Stage5/GUI.gd" type="Script" id=12]
+[ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -25,7 +24,7 @@ radius = 20.0
 size = 30
 outline_size = 1
 outline_color = Color( 0, 0, 0, 1 )
-font_data = ExtResource( 9 )
+font_data = ExtResource( 2 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "got_a_gun"
@@ -79,12 +78,12 @@ script = ExtResource( 1 )
 
 [node name="background" type="Sprite" parent="Scene"]
 z_index = -2
-texture = ExtResource( 8 )
+texture = ExtResource( 9 )
 centered = false
 
 [node name="TileMap" type="TileMap" parent="Scene"]
 scale = Vector2( 1, 0.987776 )
-tile_set = ExtResource( 7 )
+tile_set = ExtResource( 13 )
 cell_size = Vector2( 32, 32 )
 cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
 format = 1
@@ -106,7 +105,7 @@ texture = ExtResource( 3 )
 [node name="Light2D" type="Light2D" parent="Scene/gun"]
 position = Vector2( -4, 0 )
 scale = Vector2( 2, 2 )
-texture = ExtResource( 4 )
+texture = ExtResource( 10 )
 texture_scale = 0.05
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/gun"]
@@ -115,23 +114,23 @@ shape = SubResource( 2 )
 
 [node name="Player" type="Node" parent="."]
 
-[node name="player" parent="Player" instance=ExtResource( 2 )]
+[node name="player" parent="Player" instance=ExtResource( 11 )]
 position = Vector2( 220, 74 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="Machines" type="Node" parent="."]
 
-[node name="PuppetWalk" parent="Machines" instance=ExtResource( 10 )]
+[node name="PuppetWalk" parent="Machines" instance=ExtResource( 7 )]
 position = Vector2( 272, 270 )
 
-[node name="Puppet" parent="Machines" instance=ExtResource( 12 )]
+[node name="Puppet" parent="Machines" instance=ExtResource( 8 )]
 position = Vector2( 542, 302 )
 
-[node name="Puppet2" parent="Machines" instance=ExtResource( 12 )]
+[node name="Puppet2" parent="Machines" instance=ExtResource( 8 )]
 position = Vector2( 76, 302 )
 
-[node name="Puppet3" parent="Machines" instance=ExtResource( 13 )]
+[node name="Puppet3" parent="Machines" instance=ExtResource( 4 )]
 position = Vector2( 462, 174 )
 direction = -1.0
 
@@ -139,27 +138,26 @@ direction = -1.0
 
 [node name="Killing" type="Node" parent="."]
 
-[node name="Spike" parent="Killing" instance=ExtResource( 11 )]
+[node name="Spike" parent="Killing" instance=ExtResource( 5 )]
 position = Vector2( 304, 308 )
 rotation = -3.14159
 
-[node name="Spike2" parent="Killing" instance=ExtResource( 11 )]
+[node name="Spike2" parent="Killing" instance=ExtResource( 5 )]
 position = Vector2( 336, 308 )
 rotation = -3.14159
 scale = Vector2( -1, 1 )
 
-[node name="Spike4" parent="Killing" instance=ExtResource( 11 )]
+[node name="Spike4" parent="Killing" instance=ExtResource( 5 )]
 position = Vector2( 400, 308 )
 rotation = -3.14159
 scale = Vector2( -1, 1 )
 
-[node name="Spike3" parent="Killing" instance=ExtResource( 11 )]
+[node name="Spike3" parent="Killing" instance=ExtResource( 5 )]
 position = Vector2( 368, 308 )
 rotation = -3.14159
 
 [node name="GUI" type="Control" parent="."]
-pause_mode = 2
-script = ExtResource( 6 )
+script = ExtResource( 12 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -185,11 +183,9 @@ autoplay = "stop"
 anims/got_a_gun = SubResource( 4 )
 anims/stop = SubResource( 5 )
 
-[node name="FadeOut" parent="GUI" instance=ExtResource( 14 )]
-
 [node name="Doors" type="Node" parent="."]
 
-[node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
+[node name="StartDoor" parent="Doors" instance=ExtResource( 6 )]
 position = Vector2( -16, 304 )
 door_name = "door-5.1"
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
