@@ -6,7 +6,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 6, 12 )
+extents = Vector2( 6, 9.59143 )
 
 [sub_resource type="Animation" id=2]
 length = 0.8
@@ -140,6 +140,7 @@ frame = 4
 position = Vector2( 0, 4.5 )
 
 [node name="CollisionShape2D" parent="Rewinder" index="0"]
+position = Vector2( 0, 4.62804 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="4"]

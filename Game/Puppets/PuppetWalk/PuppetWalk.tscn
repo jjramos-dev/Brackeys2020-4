@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 16, 11 )
+extents = Vector2( 15, 11 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true

@@ -6,124 +6,16 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 6, 12 )
+extents = Vector2( 6, 9.45686 )
 
 [sub_resource type="Animation" id=2]
 length = 0.6
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
-"update": 1,
-"values": [ 1, 2, 3, 4, 2, 0 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Collision:shape:extents")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 16, 15.5 ), Vector2( 16, 15.5 ), Vector2( 16, 14.5 ), Vector2( 16, 12.5 ), Vector2( 16, 15 ), Vector2( 16, 15 ), Vector2( 16, 15 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Collision:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6 ),
-"transitions": PoolRealArray( 1, 1, 1, 1, 100, 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 0 ), Vector2( 0, 1 ), Vector2( 0, 1.5 ), Vector2( 0, 3.5 ), Vector2( 0, 1 ), Vector2( 0, -2 ), Vector2( 0, -2 ) ]
-}
 
 [sub_resource type="Animation" id=3]
 length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 1,
-"values": [ 5 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Collision:shape:extents")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 16, 11.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Collision:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 0, 4.5 ) ]
-}
 
 [sub_resource type="Animation" id=4]
 length = 0.4
-tracks/0/type = "value"
-tracks/0/path = NodePath("Sprite:frame")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 1,
-"values": [ 4, 3 ]
-}
-tracks/1/type = "value"
-tracks/1/path = NodePath("Collision:shape:extents")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/keys = {
-"times": PoolRealArray( 0 ),
-"transitions": PoolRealArray( 1 ),
-"update": 0,
-"values": [ Vector2( 16, 11.5 ) ]
-}
-tracks/2/type = "value"
-tracks/2/path = NodePath("Collision:position")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/keys = {
-"times": PoolRealArray( 0, 0.2 ),
-"transitions": PoolRealArray( 1, 1 ),
-"update": 0,
-"values": [ Vector2( 0, 4.5 ), Vector2( 0, 2.5 ) ]
-}
 
 [node name="Puppet" instance=ExtResource( 2 )]
 script = ExtResource( 1 )
@@ -132,12 +24,13 @@ script = ExtResource( 1 )
 texture = ExtResource( 3 )
 vframes = 2
 hframes = 3
-frame = 0
+frame = 5
 
 [node name="Collision" parent="." index="1"]
-position = Vector2( 0, -2 )
+position = Vector2( 0, 4.5 )
 
 [node name="CollisionShape2D" parent="Rewinder" index="0"]
+position = Vector2( 0.105305, 4.68155 )
 shape = SubResource( 1 )
 
 [node name="AnimationPlayer" parent="." index="4"]
@@ -145,3 +38,7 @@ autoplay = "idle"
 anims/discharging = SubResource( 2 )
 anims/idle = SubResource( 3 )
 anims/recharging = SubResource( 4 )
+
+[node name="Timer" type="Timer" parent="." index="6"]
+one_shot = true
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
