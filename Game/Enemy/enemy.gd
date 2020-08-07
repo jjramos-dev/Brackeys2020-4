@@ -54,6 +54,20 @@ func _physics_process(delta: float) -> void:
 	
 	
 	velocity = move_and_slide(velocity,Vector2.UP)
+	
+	if can_be_killed():
+		$shield.visible = false
+		$shield/CollisionShape2D.disabled = true
+	else:
+		$shield.visible = true
+		$shield/CollisionShape2D.disabled = false
+
+func can_be_killed() -> bool:
+	for child in get_parent().get_children():
+		if child.name == "Platforms-enemy":
+			if child.can_be_killed():
+				return true
+	return false
 
 func change_direction() -> void:
 	scale.x = -1 * scale.x
@@ -66,13 +80,11 @@ func _on_proximity_detection_body_entered(body: Node) -> void:
 		print("Signal of player hit")
 		SIGNALS.emit_signal("player_hit")
 	if body.is_in_group("bullet"):
-		for child in get_parent().get_children():
-			if child.name == "Platforms-enemy":
-				if child.can_be_killed():
-					#Bullet must return
-					SIGNALS.emit_signal("enemy_hit")
-					#Enemy dies
-					enemy_die()
+		if can_be_killed():
+			#Bullet must return
+			SIGNALS.emit_signal("enemy_hit")
+			#Enemy dies
+			enemy_die()
 
 func enemy_die() -> void:
 	queue_free()

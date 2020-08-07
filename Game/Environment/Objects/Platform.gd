@@ -12,12 +12,12 @@ func is_pressed() -> bool:
 	return platform_pressed
 
 func enable_platform():
-	platform_pressed = true
 	$enable_time.start(0.3)
 
 func disable_platform():
 	#scale.y = 1
 	modulate = Color("FFFFFF")
+	platform_pressed = false
 
 func _on_over_it_body_entered(body: Node) -> void:
 	if body is Player or body.is_in_group("bullet"):
@@ -29,7 +29,6 @@ func _on_over_it_body_exited(body: Node) -> void:
 	if body is Player or body.is_in_group("bullet"):
 		print("exited")
 		$disable_time.start(3)
-		platform_pressed = false
 
 func _on_enable_time_timeout() -> void:
 	platform_pressed = true

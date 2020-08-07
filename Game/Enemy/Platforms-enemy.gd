@@ -13,5 +13,6 @@ func can_be_killed() -> bool:
 func _process(delta: float) -> void:
 	for child in get_children():
 		if not child.is_pressed():
+			can_be_killed = false
 			return
 	can_be_killed = true
