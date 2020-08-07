@@ -5,7 +5,7 @@
 
 [sub_resource type="RectangleShape2D" id=1]
 resource_local_to_scene = true
-extents = Vector2( 16, 15.5 )
+extents = Vector2( 16, 11 )
 
 [sub_resource type="RectangleShape2D" id=2]
 resource_local_to_scene = true
@@ -147,10 +147,8 @@ tracks/2/keys = {
 [node name="PuppetWalk" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
 
-[node name="Sprite" parent="." index="0"]
-frame = 7
-
 [node name="Collision" parent="." index="1"]
+position = Vector2( 0, 4 )
 shape = SubResource( 1 )
 
 [node name="TextureProgress" parent="." index="2"]

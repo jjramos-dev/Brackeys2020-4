@@ -96,6 +96,7 @@ tracks/0/keys = {
 collision_layer = 16
 collision_mask = 15
 script = ExtResource( 2 )
+speed = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( -0.240921, 1.28513 )
@@ -116,7 +117,7 @@ shape = SubResource( 2 )
 [node name="floor_detection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor_detection"]
-position = Vector2( 38.1521, 30.3871 )
+position = Vector2( 31.6993, 46.1605 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
@@ -130,8 +131,9 @@ anims/run = SubResource( 8 )
 position = Vector2( 16, 0 )
 enabled = true
 exclude_parent = false
-collision_mask = 8
+cast_to = Vector2( 0, 40 )
+collision_mask = 31
 collide_with_areas = true
 [connection signal="body_entered" from="proximity_detection" to="." method="_on_proximity_detection_body_entered"]
 [connection signal="body_exited" from="proximity_detection" to="." method="_on_proximity_detection_body_exited"]
-[connection signal="area_exited" from="floor_detection" to="." method="_on_floor_detection_area_exited"]
+[connection signal="body_exited" from="floor_detection" to="." method="_on_floor_detection_body_exited"]
