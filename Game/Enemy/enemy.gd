@@ -11,6 +11,7 @@ export var time_jump_apex := 0.4
 
 var gravity : float
 var jump_force : float
+var on_wall := false
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -27,6 +28,9 @@ func _physics_process(delta: float) -> void:
 	
 	#Change direction if is on wall or on edge
 	if is_on_wall():
+		on_wall = true
+		print("onwall")
+		$on_wall_time.start(0.2)
 		change_direction()
 	
 	
@@ -72,5 +76,19 @@ func _on_proximity_detection_body_exited(body: Node) -> void:
 
 
 func _on_floor_detection_body_exited(body: Node) -> void:
-	if body.name == "TileMap":
+	print("Body exited")
+	if body.name == "TileMap" and not on_wall:
 		change_direction()
+	"""var tilemap := false
+	
+	for body in $floor_detection.get_overlapping_bodies():
+		print(body.name)
+		if body.name == "TileMap":
+			print("Tilemap")
+			tilemap = true
+	if not tilemap:
+		change_direction()"""
+		
+
+func _on_on_wall_time_timeout() -> void:
+	on_wall = false

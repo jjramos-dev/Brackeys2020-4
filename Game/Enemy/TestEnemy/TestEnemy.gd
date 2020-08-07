@@ -29,7 +29,7 @@ func _ready():
 	# the OverallLogic will be notified.
 	connect("entered_door",OverallLogic,"entered_door")
 
-	print("Ready killing!")
+	#print("Ready killing!")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

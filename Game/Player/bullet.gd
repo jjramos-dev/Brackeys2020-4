@@ -39,6 +39,11 @@ func rewind():
 	physics_material_override.bounce = 0
 	var vel : Vector2
 	move_to_prev_hook()
+	"""
+	if collision_pos.size() == 0:
+		pass
+	else:
+		move_to_prev_hook()"""
 
 func _on_Timer_timeout() -> void:
 	rewind()
@@ -70,13 +75,17 @@ func follow_player()->void:
 	if player_touched:
 		queue_free()
 
+func enemy_hit() -> void:
+	print("enemy die")
+	pass
+
 func _on_bullet_body_entered(body: Node) -> void:
 	if not on_rewind:
 		collision_pos.append(position)
 		SIGNALS.emit_signal("bullet_col",position)
 		set_hook(body)
 	elif body is Enemy:
-		queue_free()
+		enemy_hit()
 	elif collision_pos.size() > 0:
 		hooks_array.pop_back().queue_free()
 		SIGNALS.emit_signal("hook_deleted")

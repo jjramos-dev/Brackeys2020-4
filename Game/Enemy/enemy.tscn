@@ -10,7 +10,7 @@ extents = Vector2( 24.6494, 40.7851 )
 extents = Vector2( 98.2819, 26.7467 )
 
 [sub_resource type="RectangleShape2D" id=3]
-extents = Vector2( 4.68623, 3.34092 )
+extents = Vector2( 10.2805, 16.5028 )
 
 [sub_resource type="Animation" id=4]
 resource_name = "4th_wall"
@@ -134,6 +134,10 @@ exclude_parent = false
 cast_to = Vector2( 0, 40 )
 collision_mask = 31
 collide_with_areas = true
+
+[node name="on_wall_time" type="Timer" parent="."]
+one_shot = true
 [connection signal="body_entered" from="proximity_detection" to="." method="_on_proximity_detection_body_entered"]
 [connection signal="body_exited" from="proximity_detection" to="." method="_on_proximity_detection_body_exited"]
 [connection signal="body_exited" from="floor_detection" to="." method="_on_floor_detection_body_exited"]
+[connection signal="timeout" from="on_wall_time" to="." method="_on_on_wall_time_timeout"]
