@@ -1,0 +1,124 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
+[ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
+[ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
+[ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 3260, 10 )
+
+[node name="Stage15" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="Scene" type="Node" parent="."]
+
+[node name="TileMap" type="TileMap" parent="Scene"]
+scale = Vector2( 1, 0.987776 )
+tile_set = ExtResource( 7 )
+cell_size = Vector2( 32, 32 )
+cell_custom_transform = Transform2D( 32, 0, 0, 32, 0, 0 )
+format = 1
+tile_data = PoolIntArray( -1, 0, 0, -65536, 0, 0, -65535, 0, 0, -65534, 0, 0, -65533, 0, 0, -65532, 0, 0, -65531, 0, 0, -65530, 0, 0, -65529, 0, 0, -65528, 0, 0, -65527, 0, 0, -65526, 0, 0, -65525, 0, 0, -65524, 0, 0, -65523, 0, 0, -65522, 0, 0, -65521, 0, 0, -65520, 0, 0, -65519, 0, 0, -65518, 0, 0, -65517, 0, 0, -65516, 0, 0, 65535, 0, 0, 0, 1610612739, 0, 1, 1610612737, 0, 2, 1610612737, 0, 3, 1610612737, 0, 4, 0, 0, 7, 0, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 0, 0, 16, -1610612732, 0, 17, -1610612732, 0, 18, -1610612732, 0, 19, -1073741821, 0, 20, 0, 0, 131071, 0, 0, 65536, -1610612735, 0, 65537, 0, 0, 65538, 1, 0, 65539, 0, 0, 65543, 0, 0, 65544, 0, 0, 65545, 1, 0, 65546, 1, 0, 65547, 1, 0, 65548, 1, 0, 65549, 1, 0, 65550, 0, 0, 65555, 1610612740, 0, 65556, 0, 0, 196606, 9, 0, 196607, 0, 0, 131072, 0, 0, 131073, 0, 0, 131074, 0, 0, 131081, 0, 0, 131082, -1610612725, 0, 131083, -1610612725, 0, 131084, -1610612725, 0, 131085, 0, 0, 131091, 1610612740, 0, 131092, 0, 0, 262142, 0, 0, 196627, 1610612740, 0, 196628, 0, 0, 327678, 0, 0, 262163, 1610612740, 0, 262164, 0, 0, 393214, 0, 0, 393215, 0, 0, 327680, 9, 0, 327685, 0, 0, 327686, 0, 0, 327696, 1610612742, 0, 327699, 1610612740, 0, 327700, 0, 0, 458751, 5, 0, 393216, 11, 0, 393235, 1610612740, 0, 393236, 0, 0, 524287, 5, 0, 458752, 11, 0, 458771, 1610612740, 0, 458772, 0, 0, 589823, 5, 0, 524288, 11, 0, 524295, 0, 0, 524296, 0, 0, 524307, 1610612740, 0, 524308, 0, 0, 655359, 5, 0, 589824, 11, 0, 589831, 0, 0, 589832, 0, 0, 589843, -1610612733, 0, 589844, 0, 0, 589845, 0, 0, 720895, 5, 0, 655360, 11, 0, 655365, 0, 0, 655366, 1, 0, 655367, 1, 0, 655368, 1, 0, 655369, 1, 0, 655370, 1, 0, 655371, 1, 0, 655372, 0, 0, 655381, 0, 0, 786431, 5, 0, 720896, 11, 0, 720898, 0, 0, 720899, -1073741813, 0, 720900, -1073741813, 0, 720901, -1073741813, 0, 720902, -1073741813, 0, 720903, -1073741813, 0, 720904, -1073741813, 0, 720905, -1073741813, 0, 720906, -1073741813, 0, 720907, -1073741813, 0, 720908, -1073741813, 0, 720909, -1073741813, 0, 720910, -1073741813, 0, 720911, -1073741813, 0, 720912, -1073741813, 0, 720913, -1073741813, 0, 720914, -1073741813, 0, 720915, -1073741813, 0, 720916, -1073741813, 0, 720917, 0, 0, 786434, -1073741819, 0, 786435, -1073741819, 0, 786436, -1073741819, 0, 786437, -1073741819, 0, 786438, -1073741819, 0, 786439, -1073741819, 0, 786440, -1073741819, 0, 786441, -1073741819, 0, 786442, -1073741819, 0, 786443, -1073741819, 0, 786444, -1073741819, 0, 786445, -1073741819, 0, 786446, -1073741819, 0, 786447, -1073741819, 0, 786448, -1073741819, 0, 786449, -1073741819, 0, 786450, -1073741819, 0, 786451, -1073741819, 0, 786452, -1073741819, 0, 786453, -1073741819, 0 )
+
+[node name="Exterior" type="Area2D" parent="Scene"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Scene/Exterior"]
+position = Vector2( 320, 400 )
+shape = SubResource( 1 )
+
+[node name="Player" type="Node" parent="."]
+
+[node name="player" parent="Player" instance=ExtResource( 2 )]
+position = Vector2( 16, 140 )
+
+[node name="Enemies" type="Node" parent="."]
+
+[node name="Machines" type="Node" parent="."]
+
+[node name="Puppet" parent="Machines" instance=ExtResource( 4 )]
+position = Vector2( 208, 302 )
+
+[node name="Puppet2" parent="Machines" instance=ExtResource( 4 )]
+position = Vector2( 388, 302 )
+
+[node name="PuppetWalk" parent="Machines" instance=ExtResource( 8 )]
+position = Vector2( 334, 302 )
+direction = 1.0
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="GUI" type="Control" parent="."]
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="GUI"]
+wait_time = 5.0
+one_shot = true
+autostart = true
+
+[node name="Killing" type="Node" parent="."]
+
+[node name="Spike" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 176, 198 )
+scale = Vector2( -1, 1 )
+
+[node name="Spike9" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 432, 340 )
+rotation = -3.14159
+scale = Vector2( -1, 1 )
+
+[node name="Spike10" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 464, 340 )
+rotation = -3.14159
+scale = Vector2( -1, 1 )
+
+[node name="Spike11" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 496, 340 )
+rotation = -3.14159
+scale = Vector2( -1, 1 )
+
+[node name="Spike12" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 528, 340 )
+rotation = -3.14159
+
+[node name="Spike2" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 208, 198 )
+
+[node name="Spike3" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 304, 104 )
+
+[node name="Spike7" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 336, 104 )
+
+[node name="Spike8" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 368, 104 )
+
+[node name="Spike6" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 432, 104 )
+
+[node name="Spike5" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 400, 104 )
+scale = Vector2( -1, 1 )
+
+[node name="Spike4" parent="Killing" instance=ExtResource( 3 )]
+position = Vector2( 494, 40 )
+
+[node name="Doors" type="Node" parent="."]
+
+[node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( -16, 144 )
+door_name = "door-15.1"
+
+[node name="ExitDoor2" parent="Doors" instance=ExtResource( 5 )]
+position = Vector2( 656, 332 )
+scale = Vector2( -1, 1 )
+door_name = "door-15.2"
+[connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
+[connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]

@@ -8,7 +8,7 @@
 [node name="Stage2" instance=ExtResource( 3 )]
 
 [node name="player" parent="Player" index="0"]
-position = Vector2( 13.1426, 107.574 )
+position = Vector2( 16, 104 )
 
 [node name="PuppetWalk" parent="Machines" index="0" instance=ExtResource( 4 )]
 position = Vector2( 336.739, 205.411 )
@@ -33,7 +33,7 @@ position = Vector2( -20.984, 108.496 )
 door_name = "door-2.1"
 
 [node name="Door" parent="Doors" index="1" instance=ExtResource( 2 )]
-position = Vector2( 654.74, 236.964 )
+position = Vector2( 656, 240 )
 rotation = 3.14159
 scale = Vector2( 1, -1 )
 door_name = "door-2.2"

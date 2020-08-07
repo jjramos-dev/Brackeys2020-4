@@ -90,7 +90,6 @@ size_flags_vertical = 3
 custom_fonts/normal_font = SubResource( 1 )
 visible_characters = 0
 text = "Where's my princess?"
-fit_content_height = true
 __meta__ = {
 "_edit_use_anchors_": false
 }

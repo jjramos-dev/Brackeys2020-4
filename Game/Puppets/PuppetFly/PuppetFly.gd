@@ -1,14 +1,24 @@
 extends Puppet
 
+func _ready() -> void:
+	discharge_rate = 3
+
 func apply_charge():
+	var mult := 1.5
 	if energy > 0:
+		velocity.y = 0
+	if energy < 1:
+		mult = 1.0
+	if energy < 0.5:
+		mult = 0
+	"""if energy > 0:
 		direction = 1
 		velocity.y = 0
 	elif direction > 0.01:
 		direction *= stop_speed
 	else:
-		direction = 0
-	velocity.x = speed * direction
+		direction = 0"""
+	velocity.x = speed * mult * direction
 	velocity = move_and_slide(velocity,Vector2.UP)
 
 func _physics_process(delta):
