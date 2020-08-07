@@ -28,12 +28,14 @@ func _physics_process(delta: float) -> void:
 	#Change direction if is on wall or on edge
 	if is_on_wall():
 		change_direction()
-		
+	
+	
 	#TODO make raycast work with tilemap
-	#if $RayCast2D.is_colliding() == false:
-	#	change_direction()
-	#else:
-	#	print($RayCast2D.get_collision_point())
+	"""if $RayCast2D.is_colliding() == false:
+		change_direction()
+	else:
+		if $RayCast2D.get_collision_point().y > 360:
+			change_direction()"""
 	
 	#Change velocity depending on the place
 	#the enemy is looking to
@@ -46,6 +48,9 @@ func _physics_process(delta: float) -> void:
 	#Condición para saltar
 		#velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
+	
+	"""if test_move(Transform2D(0.0,Vector2(position.x+speed,position.y)),Vector2(0,-1)) == false:
+		change_direction()"""
 	
 	velocity = move_and_slide(velocity,Vector2.UP)
 
@@ -66,7 +71,6 @@ func _on_proximity_detection_body_exited(body: Node) -> void:
 		print("Player or bullet exited")
 
 
-func _on_floor_detection_area_exited(area: Area2D) -> void:
-	print("Area exited")
-	if is_on_floor():
+func _on_floor_detection_body_exited(body: Node) -> void:
+	if body.name == "TileMap":
 		change_direction()

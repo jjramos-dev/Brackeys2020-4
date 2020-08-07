@@ -8,6 +8,7 @@ export var bullet_speed : = 300
 var bullet_node : Bullet
 var direction = 1
 var to_draw : = false
+var min_distance_bullet : = 32
 onready var rope_node : Line2D = $rope
 
 func _ready() -> void:
@@ -15,6 +16,7 @@ func _ready() -> void:
 	SIGNALS.connect("bullet_queued",self,"on_bullet_queued")
 	SIGNALS.connect("bullet_col",self,"on_bullet_col")
 	SIGNALS.connect("hook_deleted",self,"on_hook_deleted")
+	SIGNALS.connect("last_hop",self,"on_last_hop")
 	rope_node.set_as_toplevel(true)
 	rope_node.global_position = Vector2.ZERO
 	rope_node.global_rotation = 0
@@ -83,7 +85,9 @@ func on_bullet_col(pos : Vector2) -> void:
 func on_hook_deleted() -> void:
 	rope_node.remove_point(rope_node.get_point_count()-2)
 	
-	
+func on_last_hop() -> void:
+	if global_position.distance_to(bullet_node.global_position) < min_distance_bullet:
+		SIGNALS.emit_signal("bullet_on_gun")
 	
 	
 	

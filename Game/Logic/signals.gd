@@ -7,3 +7,4 @@ signal bullet_col(pos)
 signal hook_deleted
 signal gun_picked
 signal key_picked
+signal last_hop
