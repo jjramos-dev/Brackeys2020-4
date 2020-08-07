@@ -33,8 +33,11 @@ func _physics_process(delta: float) -> void:
 		velocity.y += gravity * delta * (fall_mult)
 	else:
 		velocity.y += gravity * delta
-	
-	if Input.is_action_pressed("right"):
+	if Input.is_action_pressed("right") and \
+	   Input.is_action_pressed("left"):
+		velocity.x = 0
+		$AnimationPlayer.play("idle")
+	elif Input.is_action_pressed("right"):
 		velocity.x = speed
 		$AnimationPlayer.play("run")
 		if direction == -1:

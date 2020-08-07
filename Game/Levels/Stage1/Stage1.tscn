@@ -1,6 +1,6 @@
 [gd_scene load_steps=9 format=2]
 
-[ext_resource path="res://Levels/Stage1/Stage1.gd" type="Script" id=1]
+[ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=4]
