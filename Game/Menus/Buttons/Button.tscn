@@ -1,0 +1,93 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Menus/Buttons/Button.gd" type="Script" id=1]
+[ext_resource path="res://gui/fonts/Griffy/Griffy-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Environment/Objects/Graphics/key.png" type="Texture" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 30
+outline_size = 1
+outline_color = Color( 0.270588, 0.00784314, 0.533333, 1 )
+font_data = ExtResource( 2 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "running"
+length = 0.9
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath("key:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5, 0.6, 0.7, 0.8, 0.9 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 5, 4, 3, 0, 0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("key:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 0.9 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, true ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "stop"
+length = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath("key:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 1 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ false, false, false ]
+}
+
+[node name="Button" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = -608.0
+margin_bottom = -328.0
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="key" type="Sprite" parent="."]
+visible = false
+show_behind_parent = true
+position = Vector2( -6.88153, 25.604 )
+scale = Vector2( 3, 3 )
+texture = ExtResource( 3 )
+vframes = 3
+hframes = 2
+frame = 1
+
+[node name="Button" type="Button" parent="."]
+margin_right = 128.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 1 )
+text = "Button"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+autoplay = "stop"
+anims/running = SubResource( 2 )
+anims/stop = SubResource( 3 )
+[connection signal="mouse_entered" from="Button" to="." method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="Button" to="." method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="Button" to="." method="_on_Button_pressed"]

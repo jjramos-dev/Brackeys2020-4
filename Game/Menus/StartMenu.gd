@@ -8,6 +8,18 @@ func _ready():
 	pass # Replace with function body.
 
 
-func _on_ButtonStart_pressed():
-	print("Cambiando a: "+first_scene)
+func _on_StartButton_pressed():
 	OverallLogic.change_scene(first_scene,null)
+
+
+func _on_CreditsButton_pressed():
+	OverallLogic.change_scene(first_scene,null)
+
+
+func _on_ExitButton_pressed():
+	get_tree().quit() # default behavior
+
+
+func _notification(what):
+	if what == MainLoop.NOTIFICATION_WM_QUIT_REQUEST:
+		get_tree().quit() # default behavior
