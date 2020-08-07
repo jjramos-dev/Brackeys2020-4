@@ -6,6 +6,7 @@
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=4]
 
 [node name="Stage2" instance=ExtResource( 3 )]
+pause_mode = 2
 
 [node name="player" parent="Player" index="0"]
 position = Vector2( 16, 104 )

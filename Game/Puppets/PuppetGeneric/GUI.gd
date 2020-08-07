@@ -1,10 +1,7 @@
 extends Control
 
 
-# Declare member variables here. Examples:
-# var a = 2
-# var b = "text"
-
+export var is_escapable=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -12,9 +9,16 @@ func _ready():
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+func _process(delta):
 
+	if is_escapable:
+		if Input.is_action_just_pressed("escape"):
+			if $FadeOut.visible:
+				$FadeOut.visible=false
+				get_tree().paused=false
+			else:
+				$FadeOut.visible=true
+				get_tree().paused=true				
 
 func _on_Timer_timeout():
 	#$Hint.visible=false

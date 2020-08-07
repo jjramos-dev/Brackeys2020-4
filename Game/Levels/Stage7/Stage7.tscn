@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 [ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemy/Platforms-enemy.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -58,6 +59,7 @@ position = Vector2( 80, 174 )
 [node name="Sounds" type="Node" parent="."]
 
 [node name="GUI" type="Control" parent="."]
+pause_mode = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -67,6 +69,8 @@ __meta__ = {
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="FadeOut" parent="GUI" instance=ExtResource( 10 )]
 
 [node name="Killing" type="Node" parent="."]
 
