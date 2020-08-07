@@ -18,7 +18,7 @@ export var transitions= {
 		"door-4.2":["res://Levels/Stage11/Stage11.tscn","door-11.1"],
 		"door-5.1":["res://Levels/Stage7/Stage7.tscn","door-7.3"],
 		"door-7.1":["res://Levels/Stage15/Stage15.tscn","door-15.2"],
-		"door-7.2":["res://Levels/Stage15/Stage17.tscn","door-17.1"],
+		"door-7.2":["res://Levels/Stage17/Stage17.tscn","door-17.1"],
 		"door-7.3":["res://Levels/Stage5/Stage5.tscn","door-5.1"],
 		"door-9.1":["res://Levels/Stage11/Stage11.tscn","door-11.2"],
 		"door-9.2":["res://Levels/Stage13/Stage13.tscn","door-13.1"],
