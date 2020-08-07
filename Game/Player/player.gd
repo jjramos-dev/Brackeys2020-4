@@ -21,6 +21,7 @@ var direction : = 1
 func _ready() -> void:
 	print("Ready player one")
 	SIGNALS.connect("gun_picked",self,"on_gun_picked")
+	SIGNALS.connect("player_hit",self,"on_player_hit")
 	#SIGNALS.connect("key_picked",self,"on_key_picked")
 	#on_gun_picked()
 	if OverallLogic.has_gun:
@@ -89,8 +90,13 @@ func on_gun_picked() -> void:
 	$gun_pos/gun.visible = true
 	
 
-func die() -> void:
-	pass
+func on_player_hit() -> void:
+	for i in 16:
+		$Sprite.modulate = Color("6dff0000")
+		yield(get_tree(), "idle_frame")
+		$Sprite.modulate = Color("ff6d6d")
+		yield(get_tree(), "idle_frame")
+		position += Vector2(rand_range(-3,3),rand_range(-3,3))
 
 """
 func on_key_picked() -> void:
