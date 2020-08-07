@@ -2,19 +2,19 @@ extends Node
 
 var starting_door="HiddenDoor"
 
-var has_key = false
+var has_key = true
 var has_gun = false
 
 export var transitions= {
 		"entrance": ["res://Levels/Stage1/Stage1.tscn","door-1.1"],	
 		"door-0.2": ["res://Levels/Stage1/Stage1.tscn","door-1.1"],
-		"door-1.1": ["res://Levels/Stage0/Stage0.tscn","door-0.1"],
+		"door-1.1": ["res://Levels/Stage0/Stage0.tscn","door-0.2"],
 		"door-1.2": ["res://Levels/Stage3/Stage3.tscn","door-3.1"],
-		"door-1.3": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
-		"door-2.1": ["res://Menus/StartMenu.tscn","entrance"],
+		"door-1.3": ["res://Levels/Stage2/Stage2.tscn","door-2.1"],
+		"door-2.1": ["res://Levels/Stage1/Stage1.tscn","door-1.3"],
 		"door-2.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
 		"door-3.1": ["res://Levels/Stage1/Stage1.tscn","door-1.2"],
-		"door-4.1": ["res://Levels/Stage2/Stage2.tscn","door-2.2"],
+		"door-4.1": ["res://Levels/Stage2/Stage2.tscn","door2.2"],
 		"door-4.2":["res://Levels/Stage6/Stage6.tscn","door-6.1"],
 		"door-6.1":["res://Levels/Stage4/Stage4.tscn","door-4.2"]}
 
