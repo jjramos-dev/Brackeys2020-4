@@ -9,7 +9,6 @@
 
 [node name="player" parent="Player" index="0"]
 position = Vector2( 13.1426, 107.574 )
-check_visibility = false
 
 [node name="PuppetWalk" parent="Machines" index="0" instance=ExtResource( 4 )]
 position = Vector2( 336.739, 205.411 )

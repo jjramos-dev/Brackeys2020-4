@@ -55,16 +55,17 @@ func _physics_process(delta):
 	else:
 		velocity.y += gravity * delta
 	
-	if state==STATE.RECHARGING: 
-		recharge(delta*recharge_rate)
-		recharge_key()
-	else:
-		#apply_charge(energy,delta)
-		apply_charge()
-		discharge(delta*discharge_rate)
-		discharge_key()
+	if OverallLogic.has_key:
+		if state==STATE.RECHARGING: 
+			recharge(delta*recharge_rate)
+			recharge_key()
+		else:
+			#apply_charge(energy,delta)
+			apply_charge()
+			discharge(delta*discharge_rate)
+			discharge_key()
 		
-	if energy>0 or next_to_charger:	
+	if energy>0 or (next_to_charger and OverallLogic.has_key):	
 		$TextureProgress.visible=true
 		update_bar(energy)
 	else:

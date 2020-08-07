@@ -10,4 +10,4 @@ func _ready():
 
 func _on_ButtonStart_pressed():
 	print("Cambiando a: "+first_scene)
-	OverallLogic.change_scene(first_scene,first_door)
+	OverallLogic.change_scene(first_scene,null)
