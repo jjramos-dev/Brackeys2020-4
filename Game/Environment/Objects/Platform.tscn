@@ -13,6 +13,7 @@ extents = Vector2( 16, 4 )
 script = ExtResource( 2 )
 
 [node name="Sprite" type="Sprite" parent="."]
+modulate = Color( 0.411765, 0.788235, 0.462745, 1 )
 position = Vector2( 0, 8 )
 texture = ExtResource( 1 )
 vframes = 4
@@ -20,10 +21,12 @@ hframes = 4
 frame = 6
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( 0, -4 )
 shape = SubResource( 1 )
 
 [node name="over_it" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="over_it"]
 position = Vector2( 0, -8 )

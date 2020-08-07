@@ -5,12 +5,12 @@
 [ext_resource path="res://Menus/StartMenu.gd" type="Script" id=4]
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=5]
 
-[sub_resource type="Animation" id=2]
+[sub_resource type="Animation" id=1]
 resource_name = "StartButton"
 length = 0.9
 loop = true
 
-[sub_resource type="Animation" id=3]
+[sub_resource type="Animation" id=2]
 length = 0.1
 
 [node name="StartMenu" instance=ExtResource( 5 )]
@@ -26,8 +26,8 @@ position = Vector2( 654.975, 144.557 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI" index="1"]
 autoplay = "Stop"
-anims/StartButton = SubResource( 2 )
-anims/Stop = SubResource( 3 )
+anims/StartButton = SubResource( 1 )
+anims/Stop = SubResource( 2 )
 
 [node name="StartButton" parent="GUI" index="2" instance=ExtResource( 1 )]
 margin_left = 181.824
