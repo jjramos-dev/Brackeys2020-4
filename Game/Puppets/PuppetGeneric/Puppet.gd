@@ -2,7 +2,7 @@ extends KinematicBody2D
 class_name Puppet
 
 #Todo add discharged? That is idle?
-enum STATE {IDLE, DISCHARGING, RECHARGING} # Discharging==IDLE
+enum STATE {IDLE, DISCHARGING, RECHARGING, DISCHARGED} # Discharging==IDLE
 var state=STATE.IDLE
 
 export var max_energy=10
