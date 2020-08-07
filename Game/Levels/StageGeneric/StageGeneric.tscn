@@ -1,8 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 
@@ -40,7 +39,6 @@ position = Vector2( 14, 99 )
 [node name="Sounds" type="Node" parent="."]
 
 [node name="GUI" type="Control" parent="."]
-pause_mode = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -50,9 +48,6 @@ __meta__ = {
 wait_time = 5.0
 one_shot = true
 autostart = true
-
-[node name="FadeOut" parent="GUI" instance=ExtResource( 3 )]
-visible = false
 
 [node name="Killing" type="Node" parent="."]
 

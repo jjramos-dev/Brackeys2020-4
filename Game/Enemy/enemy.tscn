@@ -120,6 +120,7 @@ script = ExtResource( 2 )
 speed = 20
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 position = Vector2( -0.240921, 1.28513 )
 shape = SubResource( 1 )
 
@@ -131,6 +132,7 @@ vframes = 3
 hframes = 4
 
 [node name="proximity_detection" type="Area2D" parent="."]
+visible = false
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="proximity_detection"]
 polygon = PoolVector2Array( -12.8898, -50.4283, -33.9825, -40.1311, -35.9755, -14.7203, -53.0822, -1.10139, -51.9196, 14.1783, -40.4598, 24.9738, -40.1276, 43.7413, 33.9458, 42.7448, 35.7728, -42.4563, 15.6766, -51.2587 )
@@ -160,6 +162,7 @@ collide_with_areas = true
 one_shot = true
 
 [node name="shield" type="StaticBody2D" parent="."]
+visible = false
 position = Vector2( -11.3314, -1.84464 )
 collision_layer = 32
 collision_mask = 5
