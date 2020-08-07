@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Menus/Buttons/Button.tscn" type="PackedScene" id=1]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Button" parent="." instance=ExtResource( 1 )]
+margin_left = 109.954
+margin_top = 25.2593
+margin_right = 109.954
+margin_bottom = 25.2593
