@@ -33,7 +33,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 112.568, 140.257 )
+position = Vector2( 558, 136 )
 
 [node name="Enemies" type="Node" parent="."]
 
