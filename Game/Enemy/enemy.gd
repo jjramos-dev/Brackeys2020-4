@@ -4,6 +4,7 @@ class_name Enemy
 var velocity := Vector2.ZERO
 export var speed := 150
 var direction := 1
+export var direction_to_walk : = 1
 
 export var fall_mult := 2
 export var jump_height := 120
@@ -16,6 +17,8 @@ var on_wall := false
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$AnimationPlayer.play("run")
+	if direction_to_walk == -1:
+		change_direction()
 
 func _physics_process(delta: float) -> void:
 	gravity = (2 * jump_height) / pow(time_jump_apex, 2)
@@ -102,3 +105,8 @@ func _on_floor_detection_body_exited(body: Node) -> void:
 
 func _on_on_wall_time_timeout() -> void:
 	on_wall = false
+
+
+func _on_proximity_body_entered(body: Node) -> void:
+	if body is Player:
+		SIGNALS.emit_signal("player_hit")

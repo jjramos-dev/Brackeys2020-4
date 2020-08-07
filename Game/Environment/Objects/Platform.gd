@@ -20,7 +20,7 @@ func disable_platform():
 	platform_pressed = false
 
 func _on_over_it_body_entered(body: Node) -> void:
-	if body is Player or body.is_in_group("bullet"):
+	if body is Player or body.is_in_group("bullet") or body is Puppet:
 		print("entered")
 		enable_platform()
 

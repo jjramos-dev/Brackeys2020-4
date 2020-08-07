@@ -30,5 +30,8 @@ shape = SubResource( 2 )
 
 [node name="Timer" type="Timer" parent="."]
 one_shot = true
+
+[node name="time_exceded" type="Timer" parent="."]
 [connection signal="body_entered" from="." to="." method="_on_bullet_body_entered"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="time_exceded" to="." method="_on_time_exceded_timeout"]
