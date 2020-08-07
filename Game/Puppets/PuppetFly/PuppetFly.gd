@@ -18,7 +18,7 @@ func apply_charge():
 		direction *= stop_speed
 	else:
 		direction = 0"""
-	velocity.x = speed * mult
+	velocity.x = speed * mult * direction
 	velocity = move_and_slide(velocity,Vector2.UP)
 
 func _physics_process(delta):
