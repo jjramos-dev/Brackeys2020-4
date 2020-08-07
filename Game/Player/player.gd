@@ -55,7 +55,8 @@ func _physics_process(delta: float) -> void:
 	#if rewind_toy!=null and OverallLogic.has_key:
 	if rewind_toy!=null:
 		if Input.is_action_pressed("rewind"):
-			rewind_toy.set_recharging(true)
+			if OverallLogic.has_key:
+				rewind_toy.set_recharging(true)
 		else:
 			rewind_toy.set_recharging(false)
 			
