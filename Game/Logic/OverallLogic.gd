@@ -3,7 +3,7 @@ extends Node
 var starting_door="HiddenDoor"
 
 var has_key = true
-var has_gun = false
+var has_gun = true
 
 export var transitions= {
 		"entrance": ["res://Levels/Stage1/Stage1.tscn","door-1.1"],	
