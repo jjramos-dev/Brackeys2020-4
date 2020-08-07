@@ -52,5 +52,7 @@ autostart = true
 [node name="Killing" type="Node" parent="."]
 
 [node name="Doors" type="Node" parent="."]
+
+[node name="Camera" type="Node" parent="."]
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
