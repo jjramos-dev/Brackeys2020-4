@@ -32,7 +32,6 @@ func entered_door(door_id):
 func change_scene(scene,door):
 	OverallLogic.starting_door=door
 	get_tree().change_scene(scene)
-		
 
 func give_key() -> void:
 	has_key = true

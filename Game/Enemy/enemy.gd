@@ -66,10 +66,13 @@ func _on_proximity_detection_body_entered(body: Node) -> void:
 		print("Signal of player hit")
 		SIGNALS.emit_signal("player_hit")
 	if body.is_in_group("bullet"):
-		#Bullet must return
-		SIGNALS.emit_signal("enemy_hit")
-		#Enemy dies
-		enemy_die()
+		for child in get_parent().get_children():
+			if child.name == "Platforms-enemy":
+				if child.can_be_killed():
+					#Bullet must return
+					SIGNALS.emit_signal("enemy_hit")
+					#Enemy dies
+					enemy_die()
 
 func enemy_die() -> void:
 	queue_free()
@@ -77,11 +80,10 @@ func enemy_die() -> void:
 func _on_proximity_detection_body_exited(body: Node) -> void:
 	if body is Player:
 	#if body is Player or body is Bullet:
-		print("exited")
+		pass
 
 
 func _on_floor_detection_body_exited(body: Node) -> void:
-	print("Body exited")
 	if body.name == "TileMap" and not on_wall:
 		change_direction()
 		

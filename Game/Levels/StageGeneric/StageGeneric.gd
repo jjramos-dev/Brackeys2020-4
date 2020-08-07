@@ -16,7 +16,8 @@ func _ready():
 	# Let's look for our Killer obstacles, to connect to their signals:
 	for killer in $Killing.get_children():
 		killer.connect("hit_by_killing",self,"_on_hit_by_killing")
-
+	
+	
 	# Let's look for our doors, to connect to their signals:
 	for door in $Doors.get_children():
 		door.connect("entered_door",self,"_on_door_entered")

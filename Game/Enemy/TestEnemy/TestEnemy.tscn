@@ -1,8 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=9 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Enemy/enemy.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Environment/Objects/Platform.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Enemy/Platforms-enemy.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 
@@ -31,13 +33,22 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 316, 228 )
+position = Vector2( 256, 216 )
 
 [node name="Enemies" type="Node" parent="."]
 
 [node name="enemy" parent="Enemies" instance=ExtResource( 3 )]
 position = Vector2( 508, 272 )
 speed = 60
+
+[node name="Platforms-enemy" parent="Enemies" instance=ExtResource( 5 )]
+
+[node name="Plaform" parent="Enemies/Platforms-enemy" index="0"]
+position = Vector2( 336, 252 )
+
+[node name="Plaform2" parent="Enemies/Platforms-enemy" instance=ExtResource( 4 )]
+position = Vector2( 608, 236 )
+rotation = -1.57079
 
 [node name="Machines" type="Node" parent="."]
 
@@ -61,3 +72,5 @@ autostart = true
 [node name="Camera" type="Node" parent="."]
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
+
+[editable path="Enemies/Platforms-enemy"]

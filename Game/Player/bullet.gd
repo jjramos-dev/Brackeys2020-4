@@ -55,7 +55,6 @@ func set_hook(body: Node):
 	add_child(hook)
 	#hook.position = position
 	hook.position = local_collision_pos
-	print(local_normal.angle())
 	hook.rotation += local_normal.angle()
 	"""if local_normal == Vector2(-1,0):
 		hook.rotation += local_normal.angle()
@@ -78,19 +77,14 @@ func follow_player()->void:
 		queue_free()
 
 func enemy_hit() -> void:
-	print("enemy die")
 	pass
 
 func _on_bullet_body_entered(body: Node) -> void:
-	print("Colision")
 	if not on_rewind:
 		collision_pos.append(position)
 		SIGNALS.emit_signal("bullet_col",position)
-		print(body.name)
 		if not body is Enemy:
 			set_hook(body)
-			print(collision_pos)
-			print(hooks_array)
 	elif collision_pos.size() > 0:
 		hooks_array.pop_back().queue_free()
 		SIGNALS.emit_signal("hook_deleted")
@@ -102,9 +96,7 @@ func _on_bullet_body_entered(body: Node) -> void:
 		on_last_hop = true
 		#Si la pelota está colisionando con el espacio exterior
 		for body in get_colliding_bodies():
-			print(body.name)
 			if body.is_in_group("area_gun"):
-				print("ON AREA")
 				on_bullet_on_gun()
 	else:
 		queue_free()
@@ -120,7 +112,6 @@ func _integrate_forces( state ):
 		local_normal = state.get_contact_local_normal(0)
 
 func on_enemy_hit() ->void:
-	print("Enemy hit")
 	$Timer.stop()
 	rewind()
 

@@ -1,0 +1,39 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://Environment/Graohics/WoodenTileSet.png" type="Texture" id=1]
+[ext_resource path="res://Environment/Objects/Platform.gd" type="Script" id=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 16, 4 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 16, 4 )
+
+[node name="Plaform" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 0, 8 )
+texture = ExtResource( 1 )
+vframes = 4
+hframes = 4
+frame = 6
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0, -4 )
+shape = SubResource( 1 )
+
+[node name="over_it" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="over_it"]
+position = Vector2( 0, -8 )
+shape = SubResource( 2 )
+
+[node name="enable_time" type="Timer" parent="."]
+one_shot = true
+
+[node name="disable_time" type="Timer" parent="."]
+[connection signal="body_entered" from="over_it" to="." method="_on_over_it_body_entered"]
+[connection signal="body_exited" from="over_it" to="." method="_on_over_it_body_exited"]
+[connection signal="timeout" from="enable_time" to="." method="_on_enable_time_timeout"]
+[connection signal="timeout" from="disable_time" to="." method="_on_disable_time_timeout"]
