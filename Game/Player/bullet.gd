@@ -22,6 +22,7 @@ func _physics_process(delta: float) -> void:
 	var vel : Vector2
 	var draw = true
 	if on_last_hop:
+		SIGNALS.emit_signal("last_hop")
 		vel = get_parent().global_position - position
 		linear_velocity = vel.normalized()*speed_rewind
 
@@ -103,6 +104,8 @@ func _integrate_forces( state ):
 	if(state.get_contact_count() >= 1):  #this check is needed or it will throw errors 
 		local_collision_pos = state.get_contact_collider_position(0)
 		local_normal = state.get_contact_local_normal(0)
+
+
 
 
 
