@@ -8,7 +8,7 @@
 [node name="Stage2" instance=ExtResource( 3 )]
 
 [node name="player" parent="Player" index="0"]
-position = Vector2( 615.02, 233.608 )
+position = Vector2( 16, 104 )
 
 [node name="PuppetWalk" parent="Machines" index="0" instance=ExtResource( 4 )]
 position = Vector2( 336.739, 205.411 )

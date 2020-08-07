@@ -152,7 +152,7 @@ anims/stop = SubResource( 5 )
 
 [node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( -16, 304 )
-door_name = "door-3.1"
+door_name = "door-5.1"
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="body_entered" from="Scene/gun" to="GUI" method="_on_gun_body_entered"]
 [connection signal="body_entered" from="Scene/gun" to="." method="_on_gun_body_entered"]
