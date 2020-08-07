@@ -1,8 +1,36 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/Objects/Graphics/Bed.png" type="Texture" id=2]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=3]
+
+[sub_resource type="Animation" id=1]
+resource_name = "InitialCinematic"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("Player/player:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 1, 1.5, 3.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 239.218, 110.55 ), Vector2( 273.11, 83.1983 ), Vector2( 298.083, 140.875 ), Vector2( 335.543, 139.686 ), Vector2( 289.164, 142.064 ) ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("Player/player:scale")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1.9, 2.2, 2.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 1, 1 ), Vector2( -1, 1 ), Vector2( 1, 1 ), Vector2( -1, 1 ) ]
+}
 
 [node name="Stage0" instance=ExtResource( 1 )]
 
@@ -14,7 +42,8 @@ position = Vector2( 392.657, 125.055 )
 texture = ExtResource( 2 )
 
 [node name="player" parent="Player" index="0"]
-position = Vector2( 135.162, 139.091 )
+position = Vector2( 289.164, 142.064 )
+scale = Vector2( -1, 1 )
 
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 656.363, 173.164 )
@@ -23,3 +52,6 @@ door_name = "door-0.1"
 
 [node name="Camera2D" type="Camera2D" parent="Camera" index="0"]
 position = Vector2( 320, 180 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." index="9"]
+anims/InitialCinematic = SubResource( 1 )
