@@ -29,7 +29,6 @@ func _physics_process(delta: float) -> void:
 	#Change direction if is on wall or on edge
 	if is_on_wall():
 		on_wall = true
-		print("onwall")
 		$on_wall_time.start(0.2)
 		change_direction()
 	
@@ -53,8 +52,6 @@ func _physics_process(delta: float) -> void:
 		#velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
 	
-	"""if test_move(Transform2D(0.0,Vector2(position.x+speed,position.y)),Vector2(0,-1)) == false:
-		change_direction()"""
 	
 	velocity = move_and_slide(velocity,Vector2.UP)
 
@@ -66,28 +63,27 @@ func change_direction() -> void:
 func _on_proximity_detection_body_entered(body: Node) -> void:
 	if body is Player:
 	#if body is Player or body is Bullet:
-		print("Player or bullet entered")
+		print("Signal of player hit")
+		SIGNALS.emit_signal("player_hit")
+	if body.is_in_group("bullet"):
+		#Bullet must return
+		SIGNALS.emit_signal("enemy_hit")
+		#Enemy dies
+		enemy_die()
 
+func enemy_die() -> void:
+	queue_free()
 
 func _on_proximity_detection_body_exited(body: Node) -> void:
 	if body is Player:
 	#if body is Player or body is Bullet:
-		print("Player or bullet exited")
+		print("exited")
 
 
 func _on_floor_detection_body_exited(body: Node) -> void:
 	print("Body exited")
 	if body.name == "TileMap" and not on_wall:
 		change_direction()
-	"""var tilemap := false
-	
-	for body in $floor_detection.get_overlapping_bodies():
-		print(body.name)
-		if body.name == "TileMap":
-			print("Tilemap")
-			tilemap = true
-	if not tilemap:
-		change_direction()"""
 		
 
 func _on_on_wall_time_timeout() -> void:

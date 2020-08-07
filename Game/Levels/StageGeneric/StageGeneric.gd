@@ -29,6 +29,9 @@ func _ready():
 	# When the scene emits the signal of reaching a door,
 	# the OverallLogic will be notified.
 	connect("entered_door",OverallLogic,"entered_door")
+	
+	#Connect signal of player killed
+	SIGNALS.connect("player_hit",self,"on_player_hit")
 
 	#print("Ready killing!")
 		
@@ -67,3 +70,6 @@ func _on_hit_by_killing(_name):
 func _on_Exterior_body_entered(body):
 	if body.is_in_group("player"):
 		kill()
+
+func on_player_hit()->void:
+	kill()

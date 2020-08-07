@@ -17,6 +17,7 @@ func _ready() -> void:
 	$Timer.start(timeout_time)
 	SIGNALS.connect("bullet_on_gun",self,"on_bullet_on_gun")
 	physics_material_override.bounce = 1
+	SIGNALS.connect("enemy_hit",self,"on_enemy_hit")
 
 func _physics_process(delta: float) -> void:
 	var vel : Vector2
@@ -34,16 +35,17 @@ func _physics_process(delta: float) -> void:
 
 func rewind():
 	on_rewind = true
-	SIGNALS.emit_signal("on_rewind")
+	#SIGNALS.emit_signal("on_rewind")
 	mode = MODE_CHARACTER
 	physics_material_override.bounce = 0
 	var vel : Vector2
-	move_to_prev_hook()
-	"""
 	if collision_pos.size() == 0:
-		pass
+		on_last_hop = true
+		SIGNALS.emit_signal("last_hop")
+		vel = get_parent().global_position - position
+		linear_velocity = vel.normalized()*speed_rewind
 	else:
-		move_to_prev_hook()"""
+		move_to_prev_hook()
 
 func _on_Timer_timeout() -> void:
 	rewind()
@@ -80,12 +82,15 @@ func enemy_hit() -> void:
 	pass
 
 func _on_bullet_body_entered(body: Node) -> void:
+	print("Colision")
 	if not on_rewind:
 		collision_pos.append(position)
 		SIGNALS.emit_signal("bullet_col",position)
-		set_hook(body)
-	elif body is Enemy:
-		enemy_hit()
+		print(body.name)
+		if not body is Enemy:
+			set_hook(body)
+			print(collision_pos)
+			print(hooks_array)
 	elif collision_pos.size() > 0:
 		hooks_array.pop_back().queue_free()
 		SIGNALS.emit_signal("hook_deleted")
@@ -114,7 +119,10 @@ func _integrate_forces( state ):
 		local_collision_pos = state.get_contact_collider_position(0)
 		local_normal = state.get_contact_local_normal(0)
 
-
+func on_enemy_hit() ->void:
+	print("Enemy hit")
+	$Timer.stop()
+	rewind()
 
 
 

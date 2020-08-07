@@ -84,6 +84,8 @@ func on_gun_picked() -> void:
 	$gun_pos/gun.visible = true
 	
 
+func die() -> void:
+	pass
 
 """
 func on_key_picked() -> void:

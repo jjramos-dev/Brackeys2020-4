@@ -8,3 +8,5 @@ signal hook_deleted
 signal gun_picked
 signal key_picked
 signal last_hop
+signal player_hit
+signal enemy_hit

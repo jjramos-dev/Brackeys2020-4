@@ -1,13 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Enemy/graphics/romance.png" type="Texture" id=1]
 [ext_resource path="res://Enemy/enemy.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 24.6494, 40.7851 )
-
-[sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 98.2819, 26.7467 )
+extents = Vector2( 31.3753, 40.7851 )
 
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 10.2805, 16.5028 )
@@ -111,13 +108,13 @@ hframes = 4
 
 [node name="proximity_detection" type="Area2D" parent="."]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="proximity_detection"]
-shape = SubResource( 2 )
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="proximity_detection"]
+polygon = PoolVector2Array( -12.8898, -50.4283, -33.9825, -40.1311, -35.9755, -14.7203, -53.0822, -1.10139, -51.9196, 14.1783, -40.4598, 24.9738, -40.1276, 43.7413, 33.9458, 42.7448, 35.7728, -42.4563, 15.6766, -51.2587 )
 
 [node name="floor_detection" type="Area2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor_detection"]
-position = Vector2( 31.6993, 46.1605 )
+position = Vector2( 33.0169, 46.1605 )
 shape = SubResource( 3 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
