@@ -1,0 +1,112 @@
+[gd_scene load_steps=12 format=2]
+
+[ext_resource path="res://gui/fonts/Griffy/Griffy-Regular.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Puppets/PuppetGeneric/Puppet.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Puppets/Puppeter/Puppeter.tscn" type="PackedScene" id=8]
+
+[sub_resource type="RectangleShape2D" id=1]
+
+[sub_resource type="DynamicFont" id=2]
+size = 28
+font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=3]
+resource_name = "cinematic"
+length = 10.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 1, 3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ "I found you!
+I saved you, milady!", "I found you!
+I saved you, milady!" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1, 3, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 35, 0 ]
+}
+tracks/2/type = "value"
+tracks/2/path = NodePath("RichTextLabel:custom_colors/default_color")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/keys = {
+"times": PoolRealArray( 1 ),
+"transitions": PoolRealArray( 1 ),
+"update": 0,
+"values": [ Color( 1, 1, 1, 1 ) ]
+}
+
+[node name="Stage42" instance=ExtResource( 4 )]
+
+[node name="TileMap" parent="Scene" index="0"]
+tile_data = PoolIntArray( 0, 1610612739, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, -1073741821, 0, 65536, -1610612735, 0, 65555, -1610612735, 0, 131072, -1610612735, 0, 131091, -1610612735, 0, 196608, -1610612735, 0, 196627, -1610612735, 0, 327678, 0, 0, 327679, 0, 0, 262144, 3, 0, 262163, -1610612735, 0, 393214, 0, 0, 327699, -1610612735, 0, 458750, 0, 0, 458751, 0, 0, 393216, 1610612739, 0, 393217, 1, 0, 393218, 1, 0, 393219, 1, 0, 393220, 1, 0, 393221, 1, 0, 393222, 1, 0, 393223, 1, 0, 393224, 1, 0, 393225, 1, 0, 393226, 1, 0, 393227, 1, 0, 393228, 1, 0, 393229, 1, 0, 393230, 1, 0, 393231, 1, 0, 393232, 1, 0, 393233, 1, 0, 393234, 1, 0, 393235, -1610612735, 0, 458752, -1610612735, 0, 458756, -1610612735, 0, 458767, -1610612735, 0, 458771, -1610612735, 0, 524288, -1610612735, 0, 524292, -1610612735, 0, 524303, -1610612735, 0, 524307, -1610612735, 0, 589824, -1610612735, 0, 589828, -1610612735, 0, 589839, -1610612735, 0, 589843, -1610612735, 0, 655360, -1610612735, 0, 655364, -1610612733, 0, 655365, 1610612737, 0, 655366, 1610612737, 0, 655367, 1610612737, 0, 655368, 1610612737, 0, 655369, 1610612737, 0, 655370, 1610612737, 0, 655371, 1610612737, 0, 655372, 1610612737, 0, 655373, 1610612737, 0, 655374, 1610612737, 0, 655375, 3, 0, 655379, -1610612735, 0, 720896, -1610612735, 0, 720915, -1073741822, 0, 786432, -1610612735, 0 )
+
+[node name="player" parent="Player" index="0"]
+position = Vector2( 105.112, 173.186 )
+
+[node name="PuppetWalk" parent="Machines" index="0" instance=ExtResource( 7 )]
+position = Vector2( 402.053, 174.087 )
+
+[node name="Puppet" parent="Machines" index="1" instance=ExtResource( 5 )]
+position = Vector2( 409.467, 151.769 )
+
+[node name="Puppet2" parent="Machines" index="2" instance=ExtResource( 3 )]
+position = Vector2( 430.326, 174.043 )
+
+[node name="Puppet3" parent="Machines" index="3" instance=ExtResource( 2 )]
+position = Vector2( 436.337, 151.415 )
+
+[node name="Area2D" type="Area2D" parent="GUI" index="2"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="GUI/Area2D" index="0"]
+position = Vector2( 144.402, 178.611 )
+shape = SubResource( 1 )
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI" index="3"]
+margin_left = 166.0
+margin_top = 226.0
+margin_right = 476.0
+margin_bottom = 310.0
+custom_fonts/normal_font = SubResource( 2 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+visible_characters = 0
+text = "I found you!
+I saved you, milady!"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Puppeter" parent="GUI" index="4" instance=ExtResource( 8 )]
+position = Vector2( 378.677, 158.002 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI" index="5"]
+root_node = NodePath("../Puppeter")
+anims/cinematic = SubResource( 3 )
+
+[node name="Door" parent="Doors" index="0" instance=ExtResource( 6 )]
+position = Vector2( -15.9604, 175.332 )
+scale = Vector2( 1, 0.987776 )
+door_name = "door-42.1"
+
+[editable path="GUI/Puppeter"]

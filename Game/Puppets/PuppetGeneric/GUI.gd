@@ -41,3 +41,8 @@ func _on_ButtonStart_mouse_entered():
 
 func _on_ButtonStart_mouse_exited():
 	$AnimationPlayer.play("Stop")
+
+
+func _on_Area2D_body_entered(body):
+	if body.is_in_group("player"):
+		$AnimationPlayer.play("cinematic")

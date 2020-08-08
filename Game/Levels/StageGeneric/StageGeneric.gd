@@ -93,3 +93,6 @@ func _on_Exterior_body_entered(body):
 
 func on_player_hit()->void:
 	kill()
+
+func go_to_credits():
+	OverallLogic.change_scene("res://Menu/Credits.tscn","door-final")
