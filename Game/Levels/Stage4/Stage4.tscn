@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Environment/bg.tscn" type="PackedScene" id=5]
 
 [node name="Stage4" instance=ExtResource( 3 )]
 
@@ -31,3 +32,5 @@ position = Vector2( 656, 48 )
 rotation = 8.74228e-08
 scale = Vector2( -1, -1 )
 door_name = "door-4.2"
+
+[node name="bg" parent="." index="10" instance=ExtResource( 5 )]

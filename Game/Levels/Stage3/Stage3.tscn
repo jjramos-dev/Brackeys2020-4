@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://Levels/Stage3/Stage3.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Environment/Graohics/light.png" type="Texture" id=8]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=9]
 [ext_resource path="res://gui/fonts/FONT.tres" type="DynamicFont" id=10]
+[ext_resource path="res://Environment/bg.tscn" type="PackedScene" id=11]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -195,6 +196,8 @@ rotation = 3.14159
 [node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( -16, 112 )
 door_name = "door-3.1"
+
+[node name="bg" parent="." instance=ExtResource( 11 )]
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="body_entered" from="Scene/Key" to="." method="_on_Key_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]

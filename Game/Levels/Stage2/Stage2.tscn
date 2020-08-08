@@ -1,10 +1,11 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Environment/bg.tscn" type="PackedScene" id=6]
 
 [node name="Stage2" instance=ExtResource( 3 )]
 pause_mode = 2
@@ -49,3 +50,5 @@ position = Vector2( -32, 0 )
 z_index = -20
 color = Color( 0.180392, 0.360784, 0.419608, 1 )
 polygon = PoolVector2Array( -64, -64, -64, 448, 704, 448, 704, -64 )
+
+[node name="bg" parent="." index="10" instance=ExtResource( 6 )]

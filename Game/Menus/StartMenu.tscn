@@ -1,6 +1,7 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Menus/Buttons/Button.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=2]
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/StartMenu.gd" type="Script" id=4]
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.tscn" type="PackedScene" id=5]
@@ -17,6 +18,10 @@ length = 0.1
 script = ExtResource( 4 )
 first_scene = "res://Levels/Stage0/Stage0.tscn"
 first_door = "door-0.1"
+
+[node name="background" type="Sprite" parent="." index="0"]
+position = Vector2( 320, 197 )
+texture = ExtResource( 2 )
 
 [node name="TileMap" parent="Scene" index="0"]
 tile_data = PoolIntArray( 0, 1610612739, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 5, 1, 0, 6, 1, 0, 7, 1, 0, 8, 1, 0, 9, 1, 0, 10, 1, 0, 11, 1, 0, 12, 1, 0, 13, 1, 0, 14, 1, 0, 15, 1, 0, 16, 1, 0, 17, 1, 0, 18, 1, 0, 19, -1073741821, 0, 65536, -1610612735, 0, 65555, -1073741822, 0, 65556, -1610612736, 0, 65557, -1610612736, 0, 131072, -1610612735, 0, 131093, -1610612736, 0, 196608, -1610612735, 0, 196627, -1610612734, 0, 196628, -1610612736, 0, 196629, -1610612736, 0, 262144, -1610612735, 0, 262163, -1610612735, 0, 262165, -1073741824, 0, 327680, -1610612735, 0, 327699, -1610612735, 0, 327700, -1073741824, 0, 327701, -1073741824, 0, 393216, -1610612735, 0, 393235, -1610612735, 0, 458752, -1610612735, 0, 458771, -1610612735, 0, 524288, -1610612735, 0, 524307, -1610612735, 0, 589824, -1610612735, 0, 589843, -1610612735, 0, 655360, -1610612735, 0, 655379, -1610612735, 0, 720896, -1073741822, 0, 720915, -1073741822, 0 )

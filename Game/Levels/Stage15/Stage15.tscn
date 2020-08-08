@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 [ext_resource path="res://Puppets/PuppetWalk/PuppetWalk.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Environment/bg.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -126,5 +127,7 @@ door_name = "door-15.1"
 position = Vector2( 656, 332 )
 scale = Vector2( -1, 1 )
 door_name = "door-15.2"
+
+[node name="bg" parent="." instance=ExtResource( 10 )]
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
