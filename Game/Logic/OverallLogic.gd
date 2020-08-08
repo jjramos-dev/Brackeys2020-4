@@ -15,7 +15,7 @@ export var transitions= {
 		"door-2.2": ["res://Levels/Stage4/Stage4.tscn","door-4.1"],
 		"door-3.1": ["res://Levels/Stage1/Stage1.tscn","door-1.2"],
 		"door-4.1": ["res://Levels/Stage2/Stage2.tscn","door2.2"],
-		"door-4.2":["res://Levels/Stage11/Stage11.tscn","door-7.1"],
+		"door-4.2":["res://Levels/Stage7/Stage7.tscn","door-7.1"],
 		"door-5.1":["res://Levels/Stage7/Stage7.tscn","door-7.3"],
 		"door-7.1":["res://Levels/Stage4/Stage4.tscn","door-4.2"],
 		"door-7.2":["res://Levels/Stage11/Stage11.tscn","door-11.1"],
@@ -27,10 +27,10 @@ export var transitions= {
 		"door-13.1":["res://Levels/Stage9/Stage9.tscn","door-9.2"],
 		"door-13.2":["res://Levels/Stage15/Stage15.tscn","door-15.1"],
 		"door-15.1":["res://Levels/Stage13/Stage13.tscn","door-13.2"],
-		"door-15.2":["res://Levels/Stage17/Stage17.tscn","door-17.1"],
+		"door-15.2":["res://Levels/Stage19/Stage19.tscn","door-19.1"],
 		"door-17.1":["res://Levels/Stage15/Stage15.tscn","door-15.2"],
 		"door-17.2":["res://Levels/Stage19/Stage19.tscn","door-19.1"],
-		"door-19.1":["res://Levels/Stage17/Stage17.tscn","door-17.2"],
+		"door-19.1":["res://Levels/Stage15/Stage15.tscn","door-15.2"],
 		"door-19.2":["res://Levels/Stage42/Stage42.tscn","door-42.1"],
 		"door-42.1":["res://Levels/Stage19/Stage19.tscn","door-19.2"]}
 
@@ -52,6 +52,7 @@ func change_scene(scene,door):
 	get_tree().change_scene(scene)
 
 func give_key() -> void:
+	SIGNALS.emit_signal("key_picked")
 	has_key = true
 	
 func give_gun() -> void:

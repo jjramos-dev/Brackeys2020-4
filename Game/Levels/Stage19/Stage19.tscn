@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 3 )]
-position = Vector2( 244, 174 )
+position = Vector2( 620, 172 )
 
 [node name="Machines" type="Node" parent="."]
 

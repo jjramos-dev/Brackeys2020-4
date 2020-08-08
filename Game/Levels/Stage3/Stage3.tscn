@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/Stage3/Stage3.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -9,6 +9,7 @@
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 [ext_resource path="res://Environment/Graohics/light.png" type="Texture" id=8]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=9]
+[ext_resource path="res://gui/fonts/FONT.tres" type="DynamicFont" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -57,6 +58,36 @@ tracks/2/keys = {
 [sub_resource type="CircleShape2D" id=3]
 radius = 12.0
 
+[sub_resource type="Animation" id=4]
+resource_name = "got_a_key"
+length = 9.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("RichTextLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 2, 3.5 ),
+"transitions": PoolRealArray( 1, 1, 1 ),
+"update": 1,
+"values": [ "The Rewind Key, at last!
+Now, I will find my milady.", "The Rewind Key, at last!
+Now, I will find my milady.", "Every puppet will obey me! Ha Ha Ha" ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("RichTextLabel:visible_characters")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 2, 3.5, 5.5, 6.5, 6.6, 7.5, 7.6, 8.4, 8.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ 0, 100, 0, 27, 27, 30, 30, 33, 33, 100 ]
+}
+
 [node name="Stage3" type="Node2D"]
 script = ExtResource( 1 )
 
@@ -99,7 +130,7 @@ texture = ExtResource( 8 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 16, 108 )
+position = Vector2( 492, 172 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -123,6 +154,28 @@ autostart = true
 visible = false
 
 [node name="Tween" type="Tween" parent="GUI"]
+
+[node name="Text" type="Node2D" parent="GUI"]
+z_index = 3
+__meta__ = {
+"_editor_description_": ""
+}
+
+[node name="RichTextLabel" type="RichTextLabel" parent="GUI/Text"]
+margin_left = 304.0
+margin_top = 264.0
+margin_right = 632.0
+margin_bottom = 364.0
+custom_fonts/normal_font = ExtResource( 10 )
+visible_characters = 0
+text = "The Rewind Key, at last!
+Now, I will find my milady."
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="GUI/Text"]
+anims/got_a_key = SubResource( 4 )
 
 [node name="Killing" type="Node" parent="."]
 
