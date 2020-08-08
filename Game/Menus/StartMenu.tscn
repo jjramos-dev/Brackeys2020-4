@@ -37,10 +37,10 @@ margin_bottom = 126.164
 title = "Start"
 
 [node name="CreditsButton" parent="GUI" index="3" instance=ExtResource( 1 )]
-margin_left = 242.938
-margin_top = 188.072
-margin_right = 242.938
-margin_bottom = 188.072
+margin_left = 177.348
+margin_top = 252.821
+margin_right = 177.348
+margin_bottom = 252.821
 title = "Credits"
 
 [node name="ExitButton" parent="GUI" index="4" instance=ExtResource( 1 )]
@@ -50,6 +50,13 @@ margin_right = 338.182
 margin_bottom = 252.362
 title = "Exit"
 
+[node name="ControlButton" parent="GUI" index="5" instance=ExtResource( 1 )]
+margin_left = 258.297
+margin_top = 188.454
+margin_right = 258.297
+margin_bottom = 188.454
+title = "Controls"
+
 [node name="Door" parent="Doors" index="0" instance=ExtResource( 3 )]
 position = Vector2( 654.748, 80.5192 )
 scale = Vector2( -1, 1 )
@@ -57,3 +64,4 @@ door_name = "entrance"
 [connection signal="pressed" from="GUI/StartButton" to="." method="_on_StartButton_pressed"]
 [connection signal="pressed" from="GUI/CreditsButton" to="." method="_on_CreditsButton_pressed"]
 [connection signal="pressed" from="GUI/ExitButton" to="." method="_on_ExitButton_pressed"]
+[connection signal="pressed" from="GUI/ControlButton" to="." method="_on_ControlButton_pressed"]
