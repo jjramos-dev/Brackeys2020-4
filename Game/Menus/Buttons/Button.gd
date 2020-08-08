@@ -16,6 +16,7 @@ func title_set(title_):
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SIGNALS.connect("button_pressed",self,"on_button_general_pressed")
 	pass # Replace with function body.
 
 func _on_Button_mouse_entered():
@@ -26,3 +27,14 @@ func _on_Button_mouse_exited():
 
 func _on_Button_pressed():
 	emit_signal("pressed")
+	SIGNALS.emit_signal("button_pressed",self.title)
+
+func on_button_general_pressed(title0):
+	if title0 == "Back":
+		get_tree().change_scene("res://Menus/StartMenu.tscn")
+
+
+
+
+
+

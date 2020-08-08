@@ -11,3 +11,4 @@ signal last_hop
 signal player_hit
 signal enemy_hit
 signal bullet_blocked
+signal button_pressed(title)

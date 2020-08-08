@@ -1,9 +1,10 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=1]
 [ext_resource path="res://gui/fonts/Griffy/Griffy-Regular.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Menus/Credits.gd" type="Script" id=4]
+[ext_resource path="res://Menus/Buttons/Button.tscn" type="PackedScene" id=5]
 
 [sub_resource type="DynamicFont" id=1]
 size = 26
@@ -52,3 +53,10 @@ __meta__ = {
 
 [node name="FadeOut" parent="." instance=ExtResource( 3 )]
 visible = false
+
+[node name="Button" parent="." instance=ExtResource( 5 )]
+margin_left = 475.0
+margin_top = 286.0
+margin_right = 475.0
+margin_bottom = 286.0
+title = "Back"

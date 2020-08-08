@@ -7,6 +7,7 @@ export var first_door="door-2.1"
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	SOUNDS.intro.play()
+	get_tree().paused = false
 	pass # Replace with function body.
 
 

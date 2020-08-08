@@ -37,24 +37,28 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_pressed("right") and \
 	   Input.is_action_pressed("left"):
 		velocity.x = 0
-		$AnimationPlayer.play("idle")
+		if is_on_floor():
+			$AnimationPlayer.play("idle")
 	elif Input.is_action_pressed("right"):
 		velocity.x = speed
-		$AnimationPlayer.play("run")
+		if is_on_floor():
+			$AnimationPlayer.play("run")
 		if direction == -1:
 			direction = 1
 			SIGNALS.emit_signal("change_direction",direction)
 			scale.x = -1
 	elif Input.is_action_pressed("left"):
 		velocity.x = -speed
-		$AnimationPlayer.play("run")
+		if is_on_floor():
+			$AnimationPlayer.play("run")
 		if direction == 1:
 			direction = -1
 			SIGNALS.emit_signal("change_direction",direction)
 			scale.x = -1
 	else:
 		velocity.x = 0
-		$AnimationPlayer.play("idle")
+		if is_on_floor():
+			$AnimationPlayer.play("idle")
 	
 	#if rewind_toy!=null and OverallLogic.has_key:
 	if rewind_toy!=null:
@@ -67,6 +71,7 @@ func _physics_process(delta: float) -> void:
 	if Input.is_action_just_pressed("jump") and \
 			is_on_floor():
 		SOUNDS.jump.play()
+		$AnimationPlayer.play("jump")
 		velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
 	
