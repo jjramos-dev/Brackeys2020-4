@@ -61,6 +61,14 @@ func place_player_at_door(door):
 		
 
 func kill():
+	var player : Player = $Player/player
+	var spr = player.get_node("Sprite")
+	for i in 8:
+		spr.modulate = Color("6dff0000")
+		yield(get_tree(), "idle_frame")
+		spr.modulate = Color("ff6d6d")
+		yield(get_tree(), "idle_frame")
+		position += Vector2(rand_range(-3,3),rand_range(-3,3))
 	get_tree().reload_current_scene() # Should it be managed here?
 
 

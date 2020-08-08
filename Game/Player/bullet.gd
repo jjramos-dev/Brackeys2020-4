@@ -4,6 +4,7 @@ class_name Bullet
 export var timeout_time : = 2.5
 export var speed_rewind : = 500
 
+var time_execed : = 10
 var collision_pos : Array
 var hooks_array : Array
 var on_rewind = false
@@ -15,6 +16,7 @@ var local_normal : Vector2
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	$Timer.start(timeout_time)
+	$time_exceded.start(time_execed)
 	SIGNALS.connect("bullet_on_gun",self,"on_bullet_on_gun")
 	physics_material_override.bounce = 1
 	SIGNALS.connect("enemy_hit",self,"on_enemy_hit")
@@ -116,6 +118,12 @@ func _integrate_forces( state ):
 func on_enemy_hit() ->void:
 	$Timer.stop()
 	rewind()
+	
+func _on_time_exceded_timeout() -> void:
+	#SIGNALS.emit_signal("bullet_blocked")
+	print("Bullet exceeded")
+
+
 
 
 

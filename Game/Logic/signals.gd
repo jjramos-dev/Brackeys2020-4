@@ -10,3 +10,4 @@ signal key_picked
 signal last_hop
 signal player_hit
 signal enemy_hit
+signal bullet_blocked

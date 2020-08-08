@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://Levels/Stage5/Stage5.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -13,7 +13,6 @@
 [ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=13]
-[ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -119,7 +118,7 @@ shape = SubResource( 2 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 170, 140 )
+position = Vector2( 410, 70 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -127,18 +126,25 @@ position = Vector2( 170, 140 )
 
 [node name="PuppetWalk" parent="Machines" instance=ExtResource( 10 )]
 position = Vector2( 432, 270 )
+collision_layer = 1
+collision_mask = 1
 direction = -1.0
 
 [node name="Puppet" parent="Machines" instance=ExtResource( 12 )]
 position = Vector2( 562, 302 )
+collision_layer = 1
+collision_mask = 1
 direction = -1.0
 
 [node name="Puppet2" parent="Machines" instance=ExtResource( 12 )]
 position = Vector2( 138, 300 )
+collision_layer = 1
+collision_mask = 1
 
 [node name="Puppet3" parent="Machines" instance=ExtResource( 13 )]
 position = Vector2( 208, 176 )
-direction = 1.0
+collision_layer = 1
+collision_mask = 1
 
 [node name="Sounds" type="Node" parent="."]
 
@@ -163,7 +169,6 @@ position = Vector2( 368, 308 )
 rotation = -3.14159
 
 [node name="GUI" type="Control" parent="."]
-pause_mode = 2
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -175,12 +180,14 @@ one_shot = true
 autostart = true
 
 [node name="RichTextLabel" type="RichTextLabel" parent="GUI"]
-margin_left = 286.0
-margin_top = 54.0
-margin_right = 610.0
-margin_bottom = 166.0
+margin_left = 32.0
+margin_top = 62.0
+margin_right = 356.0
+margin_bottom = 174.0
 custom_fonts/normal_font = SubResource( 3 )
 visible_characters = 0
+text = "The Rewind Key, at last!
+Now, I will find my milady."
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,8 +196,6 @@ __meta__ = {
 autoplay = "stop"
 anims/got_a_gun = SubResource( 4 )
 anims/stop = SubResource( 5 )
-
-[node name="FadeOut" parent="GUI" instance=ExtResource( 14 )]
 
 [node name="Doors" type="Node" parent="."]
 

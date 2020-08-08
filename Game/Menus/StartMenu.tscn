@@ -24,9 +24,6 @@ tile_data = PoolIntArray( 0, 1610612739, 0, 1, 1, 0, 2, 1, 0, 3, 1, 0, 4, 1, 0, 
 [node name="player" parent="Player" index="0"]
 position = Vector2( 654.975, 144.557 )
 
-[node name="GUI" parent="." index="5"]
-is_escapable = false
-
 [node name="AnimationPlayer" type="AnimationPlayer" parent="GUI" index="1"]
 autoplay = "Stop"
 anims/StartButton = SubResource( 1 )
