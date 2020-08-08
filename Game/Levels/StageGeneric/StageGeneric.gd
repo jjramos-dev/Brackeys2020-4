@@ -79,7 +79,7 @@ func kill():
 		yield(get_tree(), "idle_frame")
 		spr.modulate = Color("ff6d6d")
 		yield(get_tree(), "idle_frame")
-		position += Vector2(rand_range(-3,3),rand_range(-3,3))
+		player.position += Vector2(rand_range(-3,3),rand_range(-3,3))
 	get_tree().reload_current_scene() # Should it be managed here?
 
 

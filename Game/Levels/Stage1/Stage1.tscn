@@ -8,17 +8,13 @@
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=8]
-[ext_resource path="res://Environment/Graohics/background.png" type="Texture" id=9]
+[ext_resource path="res://Environment/bg.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
 
 [node name="Stage1" type="Node2D"]
 script = ExtResource( 1 )
-
-[node name="background" type="Sprite" parent="."]
-position = Vector2( 320, 184 )
-texture = ExtResource( 9 )
 
 [node name="Scene" type="Node" parent="."]
 
@@ -93,5 +89,7 @@ door_name = "door-1.3"
 [node name="StartDoor" parent="Doors" instance=ExtResource( 5 )]
 position = Vector2( -16, 108 )
 door_name = "door-1.1"
+
+[node name="bg" parent="." instance=ExtResource( 9 )]
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
