@@ -11,5 +11,5 @@ dest_files=[ "res://.import/contrapuzle_intro.ogg-ffda03dd19f8e6b3592edc346a9fbe
 
 [params]
 
-loop=false
+loop=true
 loop_offset=0

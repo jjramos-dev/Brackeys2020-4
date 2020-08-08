@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 3 )]
-position = Vector2( 620, 172 )
+position = Vector2( 232, 176 )
 
 [node name="Machines" type="Node" parent="."]
 
@@ -97,6 +97,7 @@ position = Vector2( 464.2, 146.624 )
 [node name="enemy2" parent="Enemies" instance=ExtResource( 9 )]
 position = Vector2( 146, 296 )
 scale = Vector2( 0.5, 0.5 )
+max_life = 1
 direction_to_walk = -1
 
 [node name="Platforms-enemy" parent="Enemies" instance=ExtResource( 8 )]

@@ -64,7 +64,7 @@ config/icon="res://icon.png"
 
 SIGNALS="*res://Logic/signals.gd"
 OverallLogic="*res://Logic/OverallLogic.gd"
-SOUNDS="*res://gui/SoundPlayer.gd"
+SOUNDS="*res://gui/SoundPlayer.tscn"
 
 [display]
 

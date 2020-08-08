@@ -84,11 +84,13 @@ func kill():
 
 
 func _on_hit_by_killing(_name):
+	SOUNDS.player_die.play()
 	#print("Reload!!!!!!!")
 	kill()
 	
 func _on_Exterior_body_entered(body):
 	if body.is_in_group("player"):
+		SOUNDS.fall.play()
 		kill()
 
 func on_player_hit()->void:

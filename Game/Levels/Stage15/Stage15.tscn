@@ -35,7 +35,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 584, 308 )
+position = Vector2( 162, 284 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -72,7 +72,7 @@ visible = false
 [node name="Killing" type="Node" parent="."]
 
 [node name="Spike" parent="Killing" instance=ExtResource( 3 )]
-position = Vector2( 176, 198 )
+position = Vector2( 176, 196 )
 scale = Vector2( -1, 1 )
 
 [node name="Spike9" parent="Killing" instance=ExtResource( 3 )]
@@ -95,7 +95,7 @@ position = Vector2( 528, 340 )
 rotation = -3.14159
 
 [node name="Spike2" parent="Killing" instance=ExtResource( 3 )]
-position = Vector2( 208, 198 )
+position = Vector2( 208, 196 )
 
 [node name="Spike3" parent="Killing" instance=ExtResource( 3 )]
 position = Vector2( 304, 104 )

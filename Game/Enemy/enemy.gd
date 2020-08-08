@@ -93,11 +93,13 @@ func _on_proximity_detection_body_entered(body: Node) -> void:
 			enemy_hit()
 
 func enemy_hit() -> void:
+	
 	var dir_prev = direction
 	direction = 0
 	life -= 1
 	var red = (max_life - life)/max_life
 	if life <= 0:
+		SOUNDS.enemy_die.play()
 		for i in 16:
 			$Sprite.modulate = Color("6dff0000")
 			yield(get_tree(), "idle_frame")
@@ -106,6 +108,7 @@ func enemy_hit() -> void:
 			position += Vector2(rand_range(-3,3),rand_range(-3,3))
 		queue_free()
 	else:
+		SOUNDS.hit_player.play()
 		for i in 4:
 			$Sprite.modulate = Color("6dff0000")
 			yield(get_tree(), "idle_frame")

@@ -182,11 +182,14 @@ func hide_key():
 	if rewinder_key != null:
 		rewinder_key.stop()
 		rewinder_key.visible=false
+		SOUNDS.charge.stop()
 	
 func recharge_key():
 	if rewinder_key!=null:
 		show_key()
 		rewinder_key.recharge()
+		if SOUNDS.charge.playing == false:
+			SOUNDS.charge.play()
 
 func discharge_key():
 	if rewinder_key!=null:

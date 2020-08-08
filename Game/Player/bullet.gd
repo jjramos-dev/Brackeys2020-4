@@ -83,8 +83,10 @@ func enemy_hit() -> void:
 
 func _on_bullet_body_entered(body: Node) -> void:
 	if body.name == "shield":
+		SOUNDS.hit_shield.play()
 		rewind()
 	elif not on_rewind:
+		SOUNDS.hit_wall.play()
 		collision_pos.append(position)
 		SIGNALS.emit_signal("bullet_col",position)
 		if not body is Enemy:

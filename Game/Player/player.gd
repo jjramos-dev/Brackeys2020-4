@@ -30,8 +30,6 @@ func _ready() -> void:
 func _physics_process(delta: float) -> void:
 	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
 	#jump_force = gravity * time_jump_apex
-	if do_not_move:
-		return
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)
 	else:
@@ -67,7 +65,8 @@ func _physics_process(delta: float) -> void:
 			rewind_toy.set_recharging(false)
 			
 	if Input.is_action_just_pressed("jump") and \
-		is_on_floor():
+			is_on_floor():
+		SOUNDS.jump.play()
 		velocity.y = -jump_force
 		#$AnimationPlayer.play("jump")
 	
@@ -92,14 +91,13 @@ func on_gun_picked() -> void:
 	
 
 func on_player_hit() -> void:
-	do_not_move = true
+	SOUNDS.player_die.play()
 	for i in 16:
 		$Sprite.modulate = Color("6dff0000")
 		yield(get_tree(), "idle_frame")
 		$Sprite.modulate = Color("ff6d6d")
 		yield(get_tree(), "idle_frame")
 		position += Vector2(rand_range(-3,3),rand_range(-3,3))
-	do_not_move = false
 """
 func on_key_picked() -> void:
 	#Cargar algo en el sprite

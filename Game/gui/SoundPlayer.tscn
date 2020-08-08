@@ -1,15 +1,52 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://gui/Sounds/contrapuzle_intro.ogg" type="AudioStream" id=1]
 [ext_resource path="res://gui/Sounds/contrapuzle.ogg" type="AudioStream" id=2]
 [ext_resource path="res://gui/SoundPlayer.gd" type="Script" id=3]
+[ext_resource path="res://gui/Sounds/jump.ogg" type="AudioStream" id=4]
+[ext_resource path="res://gui/Sounds/hit_player.ogg" type="AudioStream" id=5]
+[ext_resource path="res://gui/Sounds/hit-wall.ogg" type="AudioStream" id=6]
+[ext_resource path="res://gui/Sounds/hit-shield.ogg" type="AudioStream" id=7]
+[ext_resource path="res://gui/Sounds/enemy-walk.ogg" type="AudioStream" id=8]
+[ext_resource path="res://gui/Sounds/charge.ogg" type="AudioStream" id=9]
+[ext_resource path="res://gui/Sounds/player_die.ogg" type="AudioStream" id=10]
+[ext_resource path="res://gui/Sounds/enemy_die.ogg" type="AudioStream" id=11]
+[ext_resource path="res://gui/Sounds/fall.ogg" type="AudioStream" id=12]
 
 [node name="SoundPlayer" type="Node"]
 script = ExtResource( 3 )
 
 [node name="intro" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 1 )
+volume_db = -15.0
 
 [node name="bg" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 2 )
 volume_db = -10.0
+
+[node name="hit_shield" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 7 )
+
+[node name="enemy_walk" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+
+[node name="hit_wall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="hit_player" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 5 )
+
+[node name="jump" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 4 )
+
+[node name="charge" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 9 )
+
+[node name="player_die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 10 )
+
+[node name="enemy_die" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 11 )
+
+[node name="fall" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 12 )
