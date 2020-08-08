@@ -1,13 +1,17 @@
 extends Node2D
 class_name Level
 
+
+
 signal entered_door(scene,door)
 
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
 
-onready var player=$Player/player
+onready var tween : Tween = $GUI/Tween
+
+onready var player : Player =$Player/player
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -27,6 +31,14 @@ func _ready():
 			initial_door=door
 			place_player_at_door(door)
 	
+	for machine in $Machines.get_children():
+		machine.not_move = true
+		tween.interpolate_property(machine,"scale",machine.scale*0.1,
+				machine.scale,0.3,Tween.TRANS_ELASTIC, Tween.EASE_IN_OUT)
+		tween.start()
+	yield(tween,"tween_all_completed")	
+	for machine in $Machines.get_children():
+		machine.not_move = false
 	# When the scene emits the signal of reaching a door,
 	# the OverallLogic will be notified.
 	connect("entered_door",OverallLogic,"entered_door")
@@ -61,7 +73,6 @@ func place_player_at_door(door):
 		
 
 func kill():
-	var player : Player = $Player/player
 	var spr = player.get_node("Sprite")
 	for i in 8:
 		spr.modulate = Color("6dff0000")

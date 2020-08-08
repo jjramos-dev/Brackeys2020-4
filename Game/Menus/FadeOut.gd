@@ -20,4 +20,4 @@ func _on_ButtonResetLevel_pressed():
 	get_tree().reload_current_scene()
 
 func _on_ButtonExit_pressed():
-	get_tree().quit()
+	get_tree().change_scene("res://Menus/StartMenu.tscn")

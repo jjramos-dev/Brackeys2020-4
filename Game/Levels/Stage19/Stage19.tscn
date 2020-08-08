@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Environment/Killings/Spikes.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Environment/Objects/Platform.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Puppets/PuppetJump/PuppetJump.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=13]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 3260, 10 )
@@ -71,6 +72,11 @@ __meta__ = {
 wait_time = 5.0
 one_shot = true
 autostart = true
+
+[node name="Tween" type="Tween" parent="GUI"]
+
+[node name="FadeOut" parent="GUI" instance=ExtResource( 13 )]
+visible = false
 
 [node name="Killing" type="Node" parent="."]
 

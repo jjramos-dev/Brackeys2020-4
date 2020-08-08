@@ -29,8 +29,9 @@ var max_energy_charged : int = 0
 var in_the_air=false
 var energy=0
 
-var next_to_charger=false
 
+var next_to_charger=false
+var not_move = false
 var recharging=false;
 
 onready var rewinder_key : Key = $Key
@@ -40,6 +41,8 @@ export var key_usable=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	$TextureProgress.visible=false
+	hide_key()
 	$TextureProgress.max_value=max_energy
 	state=STATE.IDLE
 	if direction == -1.0:
@@ -49,7 +52,8 @@ func _physics_process(delta):
 	
 	#gravity = (2 * jump_height) / pow(time_jump_apex, 2)
 	#jump_force = gravity * time_jump_apex
-		
+	if not_move:
+		return
 	if velocity.y > 0:
 		velocity.y += gravity * delta * (fall_mult)
 	else:

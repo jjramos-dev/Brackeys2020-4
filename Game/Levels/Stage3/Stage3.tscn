@@ -120,6 +120,9 @@ one_shot = true
 autostart = true
 
 [node name="FadeOut" parent="GUI" instance=ExtResource( 9 )]
+visible = false
+
+[node name="Tween" type="Tween" parent="GUI"]
 
 [node name="Killing" type="Node" parent="."]
 
