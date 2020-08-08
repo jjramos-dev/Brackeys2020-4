@@ -5,7 +5,7 @@ export var is_escapable=true
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass
+	SIGNALS.connect("key_picked",self,"on_key_picked")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -25,9 +25,13 @@ func _on_Timer_timeout():
 	#$Hint2.visible=false
 	pass
 
+func on_key_picked() -> void:
+	print("KEY PICKED")
+	$Text/AnimationPlayer.play("got_a_key")
+
 
 func _on_ButtonStart_focus_entered():
-	$AnimationPlayer.play("StartButton")
+	$Text/AnimationPlayer.play("StartButton")
 
 
 func _on_ButtonStart_focus_exited():

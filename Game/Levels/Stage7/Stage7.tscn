@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Levels/StageGeneric/StageGeneric.gd" type="Script" id=1]
 [ext_resource path="res://Player/player.tscn" type="PackedScene" id=2]
@@ -7,7 +7,6 @@
 [ext_resource path="res://Environment/ExitDoor.tscn" type="PackedScene" id=5]
 [ext_resource path="res://Puppets/PuppetGeneric/GUI.gd" type="Script" id=6]
 [ext_resource path="res://Environment/Graohics/WoodenTileSet.res" type="TileSet" id=7]
-[ext_resource path="res://Puppets/PuppetFly/PuppetFly.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Enemy/Platforms-enemy.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Menus/FadeOut.tscn" type="PackedScene" id=10]
 
@@ -36,7 +35,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 2 )]
-position = Vector2( 54, 134 )
+position = Vector2( 624, 300 )
 
 [node name="Enemies" type="Node" parent="."]
 
@@ -50,11 +49,11 @@ position = Vector2( 356, 222 )
 
 [node name="Machines" type="Node" parent="."]
 
-[node name="Puppet2" parent="Machines" instance=ExtResource( 8 )]
-position = Vector2( 144, 300 )
-
 [node name="PuppetWalk" parent="Machines" instance=ExtResource( 3 )]
 position = Vector2( 80, 174 )
+
+[node name="PuppetWalk2" parent="Machines" instance=ExtResource( 3 )]
+position = Vector2( 142, 300 )
 
 [node name="Sounds" type="Node" parent="."]
 

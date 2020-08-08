@@ -39,7 +39,7 @@ shape = SubResource( 1 )
 [node name="Player" type="Node" parent="."]
 
 [node name="player" parent="Player" instance=ExtResource( 3 )]
-position = Vector2( 244, 174 )
+position = Vector2( 620, 172 )
 
 [node name="Machines" type="Node" parent="."]
 
@@ -125,10 +125,6 @@ door_name = "door-19.1"
 position = Vector2( 658, 174 )
 scale = Vector2( -1, 1 )
 door_name = "door-19.2"
-
-[node name="ExitDoor3" parent="Doors" instance=ExtResource( 6 )]
-position = Vector2( -16, 300 )
-door_name = "door-7.3"
 [connection signal="body_entered" from="Scene/Exterior" to="." method="_on_Exterior_body_entered"]
 [connection signal="timeout" from="GUI/Timer" to="GUI" method="_on_Timer_timeout"]
 

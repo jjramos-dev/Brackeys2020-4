@@ -10,7 +10,7 @@
 pause_mode = 2
 
 [node name="player" parent="Player" index="0"]
-position = Vector2( 16, 104 )
+position = Vector2( 624, 232 )
 
 [node name="PuppetWalk" parent="Machines" index="0" instance=ExtResource( 4 )]
 position = Vector2( 336.739, 205.411 )
