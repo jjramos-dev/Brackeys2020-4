@@ -201,6 +201,7 @@ anims/stop = SubResource( 5 )
 [node name="Tween" type="Tween" parent="GUI"]
 
 [node name="FadeOut" parent="GUI" instance=ExtResource( 14 )]
+visible = false
 
 [node name="Doors" type="Node" parent="."]
 
