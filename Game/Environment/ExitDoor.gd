@@ -9,7 +9,7 @@ export var door_name="exit"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("ready door")
+	#print("ready door")
 	from_level=get_tree().current_scene.filename
 	
 func _on_Door_body_entered(body):
