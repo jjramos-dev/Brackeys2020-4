@@ -1,8 +1,6 @@
 extends Node2D
 class_name Level
 
-
-
 signal entered_door(scene,door)
 
 # Declare member variables here. Examples:
@@ -30,6 +28,15 @@ func _ready():
 		if door.door_name==OverallLogic.starting_door:
 			initial_door=door
 			place_player_at_door(door)
+			
+	# When the scene emits the signal of reaching a door,
+	# the OverallLogic will be notified.
+	connect("entered_door",OverallLogic,"entered_door")
+	
+	#Connect signal of player killed
+	SIGNALS.connect("player_hit",self,"on_player_hit")
+
+	#print("Ready killing!")
 	
 	for machine in $Machines.get_children():
 		machine.not_move = true
@@ -39,21 +46,14 @@ func _ready():
 	yield(tween,"tween_all_completed")	
 	for machine in $Machines.get_children():
 		machine.not_move = false
-	# When the scene emits the signal of reaching a door,
-	# the OverallLogic will be notified.
-	connect("entered_door",OverallLogic,"entered_door")
 	
-	#Connect signal of player killed
-	SIGNALS.connect("player_hit",self,"on_player_hit")
-
-	#print("Ready killing!")
 		
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
 func _on_door_entered(scene,door):
-	# print("Reached door "+door)
+	print("Reached door "+door)
 	emit_signal("entered_door",door)
 
 #func set_player_initial_door(door):
@@ -84,7 +84,7 @@ func kill():
 
 
 func _on_hit_by_killing(_name):
-	print("Reload!!!!!!!")
+	#print("Reload!!!!!!!")
 	kill()
 	
 func _on_Exterior_body_entered(body):
