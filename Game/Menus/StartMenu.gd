@@ -5,10 +5,13 @@ export var first_door="door-2.1"
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	SOUNDS.intro.play()
 	pass # Replace with function body.
 
 
 func _on_StartButton_pressed():
+	SOUNDS.intro.stop()
+	SOUNDS.bg.play()
 	OverallLogic.change_scene(first_scene,null)
 
 
